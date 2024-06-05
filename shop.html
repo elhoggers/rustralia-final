@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rustralia Shop - Purchase items and support the server">
+    <meta name="keywords" content="Rust, Rust shop, Rustralia, Rust items, Rust purchase">
+    <title>Rustralia Shop</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/text2.webp" alt="Rustralia Logo" class="logo">
+        </a>
+    </header>
+
+    <section id="shop" class="shop-section">
+        <h2>Welcome to the Rustralia Shop</h2>
+        <div class="shop-items">
+            <div class="shop-item">
+                <img src="images/BRONZE.PNG" alt="Item 1">
+                <h3>Queue Skip</h3>
+                <p>$10 AUD</p>
+                <button class="btn-buy" onclick="openPopup('popup1')">Buy Now</button>
+            </div>
+            <div class="shop-item">
+                <img src="images/SILVER.PNG" alt="Item 2">
+                <h3>Queue Skip 6 months</h3>
+                <p>$50 AUD</p>
+                <button class="btn-buy" onclick="openPopup('popup2')">Buy Now</button>
+            </div>
+            <div class="shop-item">
+                <img src="images/GOLD.PNG" alt="Item 3">
+                <h3>Lifetime Que Skip</h3>
+                <p>$80 AUD</p>
+                <button class="btn-buy" onclick="openPopup('popup3')">Buy Now</button>
+            </div>
+        </div>
+        <button class="btn-donate" onmouseover="showDonatePopup()" onmouseout="hideDonatePopup()">Donate</button>
+        <div id="donate-popup" class="donate-popup">Your donation helps us keep the server running, you can choose how much you would like to send to help support the server! Thank you!</div>
+    </section>
+
+    <div id="popup1" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('popup1')">&times;</span>
+            <h2>Queue Skip</h2>
+            <p>MAKE SURE YOU LOG IN TO DISCORD ACCOUNT ON THE PAYMENT PAGE TO CLAIM YOUR ROLE OR YOU WON'T HAVE IT!</p>
+            <p>Queue Skip for RUSTRALIA Monthly</p>
+            <ul>
+                <li>Queue skip will allow you to skip the queue for 28 days on its dedicated server.</li>
+                <li>You will also get access to preview the 'Next Map Seed' channels within the RUSTRALIA Discord Server <a href="https://discord.gg/9BMYjGC" target="_blank">Here</a></li>
+                <li>Display your dedication in our Discord and Rust server with a colored role.</li>
+            </ul>
+            <p><italic>There are no other privileges associated with purchasing the queue skip although you play a big part in supporting the upkeep of Rustralia</italic></p>
+            <button id="payment-button1" class="btn-buy" onclick="goToPayment('https://payment-link.com')">Go to Payment</button>
+        </div>
+    </div>
+
+    <div id="popup2" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('popup2')">&times;</span>
+            <h2>Queue Skip 6 months</h2>
+            <p>MAKE SURE YOU LOG IN TO DISCORD ACCOUNT ON THE PAYMENT PAGE TO CLAIM YOUR ROLE OR YOU WON'T HAVE IT!</p>
+            <p>Queue Skip for All RUSTRALIA Servers</p>
+            <ul>
+                <li>6 month queue skip will allow you to skip the queue for 6 months on its dedicated server.</li>
+                <li>You will also get access to preview the 'Next Map Seed' channels within the RUSTRALIA Discord Server <a href="https://discord.gg/9BMYjGC" target="_blank">Here</a></li>
+                <li>Display your dedication on our Discord and Rust server with a colored role.</li>
+            </ul>
+            <p><italic>There are no other privileges associated with purchasing the queue skip although you play a big part in supporting the upkeep of Rustralia</italic></p>
+            <button id="payment-button2" class="btn-buy" onclick="goToPayment('https://payment-link.com')">Go to Payment</button>
+        </div>
+    </div>
+
+    <div id="popup3" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('popup3')">&times;</span>
+            <h2>Lifetime Queue Skip</h2>
+            <p>MAKE SURE YOU LOG IN TO DISCORD ACCOUNT ON THE PAYMENT PAGE TO CLAIM YOUR ROLE OR YOU WON'T HAVE IT!</p>
+            <p>Queue Skip for All RUSTRALIA Servers</p>
+            <ul>
+                <li>Queue Skip will allow you to skip the queue forever on all of our servers.</li>
+                <li>You will also get access to preview the 'Next Map Seed' channels within the RUSTRALIA Discord Server <a href="https://discord.gg/9BMYjGC" target="_blank">Here</a></li>
+				<li>You will be able to join one of our testing servers granting you permission to use `noclip` in F1 and basic !kit to help you build to test out a set area. This only applies to the monthly server.</li>
+				<li>You will be able to see the server's private ban list.</li>
+                <li>Display your dedication on our Discord and Rust server with a colored role.</li>
+            </ul>
+            <p><italic>There are no other privileges associated with purchasing the queue skip although you play a big part in supporting the upkeep of Rustralia</italic></p>
+            <button id="payment-button3" class="btn-buy" onclick="goToPayment('https://payment-link.com')">Go to Payment</button>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="https://discord.gg/9BMYjGC" target="_blank"><i class="fab fa-discord icon"></i></a></li>
+            <li><a href="https://steamcommunity.com/gid/40580750" target="_blank"><i class="fab fa-steam icon"></i></a></li>
+            <li><a href="https://twitter.com/playRUSTRALIA" target="_blank"><i class="fab fa-twitter icon"></i></a></li>
+        </ul>
+        <p>&copy; 2024 Rustralia. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+
+        function showDonatePopup() {
+            document.getElementById('donate-popup').style.display = 'block';
+        }
+
+        function hideDonatePopup() {
+            document.getElementById('donate-popup').style.display = 'none';
+        }
+
+        function goToPayment(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

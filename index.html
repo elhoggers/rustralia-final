@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rustralia - The no.1 Australian community Rust server, bp's never wipe">
+    <meta name="keywords" content="Rust, Rust server, Rustralia, Rust community, Rust rules, Rust gameplay, best rust server, au, Australia">
+    <title>Rustralia - The number 1 AU community Server</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <img src="images/text2.webp" alt="Rustralia Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#overview" data-scroll>Overview</a></li>
+                <li><a href="#shop" data-scroll>QUE SKIP</a></li>
+                <li><a href="#rules" id="rules-link" data-scroll>Rules</a></li>
+                <li><a href="#faq" data-scroll>FAQ</a></li>
+                <li><a href="stats.php" data-scroll>Stats</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="overview" class="overview-section">
+        <video src="images/banner.webm" autoplay muted loop></video>
+        <div class="overview-content">
+            <div class="background-image"></div>
+            <h2>Welcome to Rustralia</h2>
+            <p>NO.1 Aus community server<br>AU hosted, quick staff support</p>
+        </div>
+        <div class="overview-links">
+            <a href="https://discord.gg/9BMYjGC" target="_blank"><i class="fab fa-discord icon"></i></a>
+        </div>
+    </section>
+
+    <section id="blank-section">
+        <div id="shop">
+            <div id="server-info" class="server-info-section">
+                <div class="server-info-box">
+                    <div class="thumbnail">
+                        <img src="images/badass.jpg" alt="Server Thumbnail">
+                        <p id="server-status" class="status-overlay"><span id="status">Loading...</span></p>
+                    </div>
+                    <div class="server-details">
+                        <h2>Monthly - No Bp wipes</h2>
+                        <p id="population-count">Loading...</p>
+                        <button id="copy-button" class="button">Client connect</button>
+                        <button id="shop-button" class="button" onclick="window.location.href='shop.html'">Shop</button>
+
+
+                    </div>
+                </div>
+                <div class="server-info-box coming-soon">
+                    <div class="thumbnail">
+                        <img src="images/badass.jpg" alt="Coming Soon Thumbnail" class="grayscale">
+                        <p class="coming-soon-overlay">Coming Soon</p>
+                    </div>
+                    <div class="server-details">
+                        <h2>Fortnightly - No Bp wipes</h2>
+                        <p>Details will be available soon.</p>
+                        <button class="button" disabled>Client connect</button>
+                        <button class="button" disabled>Shop</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li>
+                <div class="faq-question">
+                    When is Wipe?
+                    <div class="arrow">
+                        <div class="arrow-top"></div>
+                        <div class="arrow-bottom"></div>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Force Wipe:</strong> This will occur on the first Friday of each month at 4 AM AEST or 6 AM AEDT (depending on whether it is non-daylight savings or daylight savings). At times, this schedule can be delayed if Facepunch encounters a last-minute patch.</p>
+                    <p><strong>Monthly Server:</strong> This server will wipe on force wipe as explained above.</p>
+                    <p><strong>Wipe Command:</strong> You can use !wipe in our Discord to see when a server will wipe next.</p>
+                </div>
+            </li>
+            <li>
+                <div class="faq-question">
+                    There is an in-game glitch. Can you fix it?
+                    <div class="arrow">
+                        <div class="arrow-top"></div>
+                        <div class="arrow-bottom"></div>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We do not interfere with the natural course of gameplay, nor do we provide compensation for any items lost due to unforeseeable glitches that may occur during gameplay.</p>
+                    <p>These glitches may include but are not limited to:</p>
+                    <ul>
+                        <li>Falling through the world and losing your items.</li>
+                        <li>Dropping loot on the ground and it disappearing or getting stuck.</li>
+                        <li>Placing walls that cannot be removed/rotated after the timer expires.</li>
+                        <li>Losing loot after a server rollback.</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="faq-question">
+                    Do the admins or moderators ever play on the server?
+                    <div class="arrow">
+                        <div class="arrow-top"></div>
+                        <div class="arrow-bottom"></div>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>While our team is comprised of experienced and passionate individuals who possess extensive knowledge of the game, we have implemented a strict policy to avoid any potential conflict of interest or favoritism. As such, our administrators refrain from participating in gameplay activities, in order to maintain impartiality and ensure a fair and equitable experience for all our players. (Please note, admins aren't allowed to play; however, chat mods can.)</p>
+                </div>
+            </li>
+            <li>
+                <div class="faq-question">
+                    How do I report a player for cheating?
+                    <div class="arrow">
+                        <div class="arrow-top"></div>
+                        <div class="arrow-bottom"></div>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>Maintaining fair and enjoyable gameplay is of utmost importance to us. Therefore, in the event that a player is suspected of violating our rules or engaging in cheating, we encourage the community to report such incidents using our official reporting channels. This can be done through:</p>
+                    <ul>
+                        <li>Rust's in-game F7 reporting system, which will immediately notify our administrators of any in-game reports. This report is also sent to Rusts EAC (Easy Anti Cheat) which may ban them for cheating.</li>
+                        <li>Players can also submit a support ticket through our Discord server, ensuring that sufficient and concrete evidence is provided to substantiate any reports (screenshots, video proof etc.).</li>
+                    </ul>
+                    <p>We thank you for your cooperation in helping us to ensure a safe and fair gaming experience for all!</p>
+                </div>
+            </li>
+            <li>
+                <div class="faq-question">
+                    Do we really keep all our researched blueprints forever on the "No BP Wipe" server?
+                    <div class="arrow">
+                        <div class="arrow-top"></div>
+                        <div class="arrow-bottom"></div>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>It's up to the server owners to decide when to wipe blueprints. At Rustralia, we keep all blueprints.</p>
+                </div>
+            </li>
+            <li>
+                <div class="faq-question">
+                    Toxic Behaviour
+                    <div class="arrow">
+                        <div class="arrow-top"></div>
+                        <div class="arrow-bottom"></div>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We take a strong stance against the use of hateful language, racism, and homophobia in our community and have implemented a protocol to ensure that all players adhere to this standard. As such, we may temporarily mute players who engage in the use of such language. Please note that all mutes have a specified duration and will be lifted automatically upon completion.</p>
+                    <p>However, we would like to emphasise that repeated instances of excessive toxicity, even after being muted, will not be tolerated. In such cases, we reserve the right to issue a toxic behavior ban, should it be deemed necessary. We value and prioritise the wellbeing of our community and strive to foster a positive and inclusive gaming environment.</p>
+                </div>
+            </li>
+            <li>
+                <div class="faq-question">
+                    I lost my items due to cheaters. Can I get my loot back?
+                    <div class="arrow">
+                        <div class="arrow-top"></div>
+                        <div class="arrow-bottom"></div>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We cannot provide a refund for any lost gear or items. Even with images or clip evidence, it is difficult for us to ascertain the exact nature and extent of the loss experienced by every player. As such, we do not offer refunds for lost items, as it would be unfair to those who have experienced similar losses but are unable to provide the same level of evidence. However there can be some case by case scenarios.</p>
+                </div>
+            </li>
+            <li>
+                <div class="faq-question">
+                    I was banned. Can I appeal it?
+                    <div class="arrow">
+                        <div class="arrow-top"></div>
+                        <div class="arrow-bottom"></div>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We understand that receiving a ban can be a frustrating experience, and we strive to ensure that all bans are issued fairly and with just cause. We provide an appeal system for players who wish to challenge a ban through our support ticket system on Discord. To submit an appeal, please navigate to our <a href="https://discord.gg/9BMYjGC" target="_blank">Discord</a> where you will be asked to verify your Steam and Discord accounts to confirm your identity.</p>
+                    <p>Once verified, please proceed to the support-ticket channel on our Discord server and select the ‘Ban or Mute Appeal’ option. We request that all necessary and accurate information is provided to facilitate the appeals process. Please note that it may take up to 48 hours for us to respond to your appeal.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Popup Section -->
+    <div id="rulesPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Server Rules</h2>
+            <ul class="rules-list">
+                <li>
+                    <div class="rule-title">Rule 1: Report any rule-breaking behaviour
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">Report any rule-breaking behaviour using the in-game F7 report function or by creating a ticket in our discord.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 2: Players are allowed one Rust game-banned alternative account
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">Players are allowed one Rust game-banned alternative account that is over 150 days old. If a player is found with more than one alternative account that has a Rust game ban, they will be banned from the server. Players with 1 banned account can appeal this ban once it has been 150 days since the ban was issued.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 3: The use of any third-party applications is prohibited
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">The use of any third-party applications, scripts, macros, or other tools (not including crosshairs or guitar scripts) that give players an unfair advantage is prohibited. Any players found using such tools will be banned.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 4: Discussing or promoting the use of cheats is not allowed
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">Discussing or promoting the use of cheats, scripts, macros, or other tools that give players an unfair advantage is not allowed. Players who do so will receive a warning and may be banned if they continue to violate this rule. Repeated violations of this rule will result in a permanent ban.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 5: Players are expected to treat each other with respect
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">Players are expected to treat each other with respect. Any racist, sexually inappropriate, homophobic or otherwise offensive comments/hate speech will result in a mute or ban, depending on the severity of the offense.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 6: Exploiting game bugs or glitches is prohibited
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">Exploiting game bugs or glitches is prohibited. Depending on the severity of the exploit, players may be banned for doing so.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 7: Do not release personal information
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">Do not release personal information (including Steam and Discord profile pictures) of other players without their permission. We class this as a form of doxxing. Doing so is grounds for a permanent ban. Even if the information is public that does not mean you should use it.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 8: Impersonating server staff is not allowed
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">Impersonating server staff is not allowed. Players who violate this rule will be muted or banned, depending on the severity of the offence.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 9: Threatening to DDOS the server or other players is strictly prohibited
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">Threatening to DDOS the server or other players is strictly prohibited. Players who violate this rule will be permanently banned or muted.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Rule 10: The Rustralia staff reserve the right to make final decisions
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">The Rustralia staff reserve the right to make final decisions on all matters related to the server.</div>
+                </li>
+				<li>
+                    <div class="rule-title">Rule 11: Respect the staff
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">The staff do not get paid, they do this out of the kindness of their hearts, so please treat them with respect.</div>
+                </li>
+                <li>
+                    <div class="rule-title">Admin abuse
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="rule-detail">If a player believes they have been the victim of admin abuse, they can contact the server at contactrustralia@gmail.com, only the owner will see these.</div>
+                </li>
+            </ul>
+            <p>By playing on our servers you are consenting to our rules and understand the consequences for not following them</p>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="https://discord.gg/9BMYjGC" target="_blank"><i class="fab fa-discord icon"></i></a></li>
+            <li><a href="https://steamcommunity.com/gid/40580750" target="_blank"><i class="fab fa-steam icon"></i></a></li>
+            <li><a href="https://twitter.com/playRUSTRALIA" target="_blank"><i class="fab fa-twitter icon"></i></a></li>
+        </ul>
+        <p>&copy; 2024 Rustralia. All rights reserved.</p>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Smooth scrolling
+        document.querySelectorAll('a[data-scroll]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Get the popup
+        var popup = document.getElementById("rulesPopup");
+
+        // Get the link that opens the popup
+        var link = document.getElementById("rules-link");
+
+        // Get the <span> element that closes the popup
+        var closeBtn = document.getElementsByClassName("close-btn")[0];
+
+        // When the user clicks the link, open the popup
+        if (link) {
+            link.onclick = function() {
+                popup.style.display = "block";
+            }
+        }
+
+        // When the user clicks on <span> (x), close the popup
+        if (closeBtn) {
+            closeBtn.onclick = function() {
+                popup.style.display = "none";
+            }
+        }
+
+        // When the user clicks anywhere outside of the popup, close it
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+
+        // Add click event to toggle rule details
+        document.querySelectorAll('.rules-list li').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Fetch server population data from BattleMetrics API
+        const apiUrl = 'https://api.battlemetrics.com/servers/15465350';
+        const serverAddress = 'au.monthly.rustralia.com.au';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const populationCount = data.data.attributes.players;
+                const maxPlayers = data.data.attributes.maxPlayers;
+                const serverStatus = data.data.attributes.status;
+
+                document.getElementById('population-count').textContent = `${populationCount}/${maxPlayers} players`;
+                document.getElementById('status').textContent = serverStatus === 'online' ? 'Online' : 'Offline';
+                document.getElementById('status').className = serverStatus === 'online' ? 'server-status-online' : 'server-status-offline';
+            })
+            .catch(error => {
+                console.error('Error fetching server data:', error);
+                document.getElementById('population-count').textContent = 'Failed to load population data';
+                document.getElementById('status').textContent = 'Offline';
+                document.getElementById('status').className = 'server-status-offline';
+            });
+
+        // Copy server address to clipboard
+        const copyButton = document.getElementById('copy-button');
+        if (copyButton) {
+            copyButton.addEventListener('click', function () {
+                navigator.clipboard.writeText(serverAddress).then(function () {
+                    alert('Client connect au.monthly.rustralia.com.au copied to clipboard');
+                }, function (err) {
+                    console.error('Could not copy text: ', err);
+                });
+            });
+        }
+
+		
+        // Add click event to toggle FAQ answers
+        const faqItems = document.querySelectorAll('.faq-list li');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', () => {
+                    // Close all other FAQ items
+                    faqItems.forEach(faq => {
+                        if (faq !== item) {
+                            faq.classList.remove('active');
+                            const faqAnswer = faq.querySelector('.faq-answer');
+                            if (faqAnswer) {
+                                faqAnswer.style.maxHeight = '0';
+                                faqAnswer.style.paddingTop = '0';
+                                faqAnswer.style.opacity = '0';
+                            }
+                        }
+                    });
+
+                    // Toggle the clicked FAQ item
+                    item.classList.toggle('active');
+                    const answer = item.querySelector('.faq-answer');
+                    if (answer) {
+                        if (item.classList.contains('active')) {
+                            answer.style.maxHeight = '500px';
+                            answer.style.paddingTop = '1rem';
+                            answer.style.opacity = '1';
+                        } else {
+                            answer.style.maxHeight = '0';
+                            answer.style.paddingTop = '0';
+                            answer.style.opacity = '0';
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+<!--OI stop readin me code ya dog-->
