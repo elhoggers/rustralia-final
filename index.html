@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="#overview" data-scroll>Overview</a></li>
-                <li><a href="#shop" data-scroll>QUE SKIP</a></li>
+                <li><a href="#shop" data-scroll>QUEUE SKIP</a></li>
                 <li><a href="#rules" id="rules-link" data-scroll>Rules</a></li>
                 <li><a href="#faq" data-scroll>FAQ</a></li>
                 <li><a href="stats.php" data-scroll>Stats</a></li>
@@ -48,8 +48,6 @@
                         <p id="population-count">Loading...</p>
                         <button id="copy-button" class="button">Client connect</button>
                         <button id="shop-button" class="button" onclick="window.location.href='shop.html'">Shop</button>
-
-
                     </div>
                 </div>
                 <div class="server-info-box coming-soon">
@@ -282,7 +280,7 @@
                     </div>
                     <div class="rule-detail">The Rustralia staff reserve the right to make final decisions on all matters related to the server.</div>
                 </li>
-				<li>
+                <li>
                     <div class="rule-title">Rule 11: Respect the staff
                         <div class="arrow">
                             <div class="arrow-top"></div>
@@ -291,15 +289,18 @@
                     </div>
                     <div class="rule-detail">The staff do not get paid, they do this out of the kindness of their hearts, so please treat them with respect.</div>
                 </li>
-                <li>
-                    <div class="rule-title">Admin abuse
-                        <div class="arrow">
-                            <div class="arrow-top"></div>
-                            <div class="arrow-bottom"></div>
-                        </div>
-                    </div>
-                    <div class="rule-detail">If a player believes they have been the victim of admin abuse, they can contact the server at contactrustralia@gmail.com, only the owner will see these.</div>
-                </li>
+				<li>
+					<div class="rule-title">Admin abuse
+						<div class="arrow">
+							<div class="arrow-top"></div>
+							<div class="arrow-bottom"></div>
+						</div>
+					</div>
+					<div class="rule-detail">
+						If a player believes they have been the victim of admin abuse, they can contact the server at 
+						<span id="email-link"></span>, only the owner will see these.
+					</div>
+				</li>
             </ul>
             <p>By playing on our servers you are consenting to our rules and understand the consequences for not following them</p>
         </div>
@@ -316,128 +317,170 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Smooth scrolling
-        document.querySelectorAll('a[data-scroll]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+    // Smooth scrolling
+    document.querySelectorAll('a[data-scroll]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
+    });
 
-        // Get the popup
-        var popup = document.getElementById("rulesPopup");
+    // Get the popup
+    var popup = document.getElementById("rulesPopup");
 
-        // Get the link that opens the popup
-        var link = document.getElementById("rules-link");
+    // Get the link that opens the popup
+    var link = document.getElementById("rules-link");
 
-        // Get the <span> element that closes the popup
-        var closeBtn = document.getElementsByClassName("close-btn")[0];
+    // Get the <span> element that closes the popup
+    var closeBtn = document.getElementsByClassName("close-btn")[0];
 
-        // When the user clicks the link, open the popup
-        if (link) {
-            link.onclick = function() {
-                popup.style.display = "block";
-            }
+    // When the user clicks the link, open the popup
+    if (link) {
+        link.onclick = function() {
+            popup.style.display = "block";
         }
+    }
 
-        // When the user clicks on <span> (x), close the popup
-        if (closeBtn) {
-            closeBtn.onclick = function() {
-                popup.style.display = "none";
-            }
+    // When the user clicks on <span> (x), close the popup
+    if (closeBtn) {
+        closeBtn.onclick = function() {
+            popup.style.display = "none";
         }
+    }
 
-        // When the user clicks anywhere outside of the popup, close it
-        window.onclick = function(event) {
-            if (event.target == popup) {
-                popup.style.display = "none";
-            }
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = "none";
         }
+    }
 
-        // Add click event to toggle rule details
-        document.querySelectorAll('.rules-list li').forEach(item => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
-        });
+    // Add click event to toggle rule details
+    const ruleItems = document.querySelectorAll('.rules-list li');
 
-        // Fetch server population data from BattleMetrics API
-        const apiUrl = 'https://api.battlemetrics.com/servers/15465350';
-        const serverAddress = 'au.monthly.rustralia.com.au';
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const populationCount = data.data.attributes.players;
-                const maxPlayers = data.data.attributes.maxPlayers;
-                const serverStatus = data.data.attributes.status;
-
-                document.getElementById('population-count').textContent = `${populationCount}/${maxPlayers} players`;
-                document.getElementById('status').textContent = serverStatus === 'online' ? 'Online' : 'Offline';
-                document.getElementById('status').className = serverStatus === 'online' ? 'server-status-online' : 'server-status-offline';
-            })
-            .catch(error => {
-                console.error('Error fetching server data:', error);
-                document.getElementById('population-count').textContent = 'Failed to load population data';
-                document.getElementById('status').textContent = 'Offline';
-                document.getElementById('status').className = 'server-status-offline';
-            });
-
-        // Copy server address to clipboard
-        const copyButton = document.getElementById('copy-button');
-        if (copyButton) {
-            copyButton.addEventListener('click', function () {
-                navigator.clipboard.writeText(serverAddress).then(function () {
-                    alert('Client connect au.monthly.rustralia.com.au copied to clipboard');
-                }, function (err) {
-                    console.error('Could not copy text: ', err);
-                });
-            });
-        }
-
-		
-        // Add click event to toggle FAQ answers
-        const faqItems = document.querySelectorAll('.faq-list li');
-
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            if (question) {
-                question.addEventListener('click', () => {
-                    // Close all other FAQ items
-                    faqItems.forEach(faq => {
-                        if (faq !== item) {
-                            faq.classList.remove('active');
-                            const faqAnswer = faq.querySelector('.faq-answer');
-                            if (faqAnswer) {
-                                faqAnswer.style.maxHeight = '0';
-                                faqAnswer.style.paddingTop = '0';
-                                faqAnswer.style.opacity = '0';
-                            }
-                        }
-                    });
-
-                    // Toggle the clicked FAQ item
-                    item.classList.toggle('active');
-                    const answer = item.querySelector('.faq-answer');
-                    if (answer) {
-                        if (item.classList.contains('active')) {
-                            answer.style.maxHeight = '500px';
-                            answer.style.paddingTop = '1rem';
-                            answer.style.opacity = '1';
-                        } else {
-                            answer.style.maxHeight = '0';
-                            answer.style.paddingTop = '0';
-                            answer.style.opacity = '0';
+    ruleItems.forEach(item => {
+        const title = item.querySelector('.rule-title');
+        if (title) {
+            title.addEventListener('click', () => {
+                // Close all other rule items
+                ruleItems.forEach(rule => {
+                    if (rule !== item) {
+                        rule.classList.remove('active');
+                        const ruleDetail = rule.querySelector('.rule-detail');
+                        if (ruleDetail) {
+                            ruleDetail.style.maxHeight = '0';
+                            ruleDetail.style.paddingTop = '0';
+                            ruleDetail.style.opacity = '0';
                         }
                     }
                 });
-            }
-        });
+
+                // Toggle the clicked rule item
+                item.classList.toggle('active');
+                const detail = item.querySelector('.rule-detail');
+                if (detail) {
+                    if (item.classList.contains('active')) {
+                        detail.style.maxHeight = '500px';
+                        detail.style.paddingTop = '1rem';
+                        detail.style.opacity = '1';
+                    } else {
+                        detail.style.maxHeight = '0';
+                        detail.style.paddingTop = '0';
+                        detail.style.opacity = '0';
+                    }
+                }
+            });
+        }
     });
+
+    // Add email obfuscation
+    const emailUser = "contactrustralia";
+    const emailDomain = "gmail.com";
+    const emailAddress = `${emailUser}@${emailDomain}`;
+    const emailLinkElement = document.getElementById('email-link');
+
+    if (emailLinkElement) {
+        emailLinkElement.innerHTML = `<a href="mailto:${emailAddress}">${emailAddress}</a>`;
+    }
+
+    // Fetch server population data from BattleMetrics API
+    const apiUrl = 'https://api.battlemetrics.com/servers/15465350';
+    const serverAddress = 'au.monthly.rustralia.com.au';
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const populationCount = data.data.attributes.players;
+            const maxPlayers = data.data.attributes.maxPlayers;
+            const serverStatus = data.data.attributes.status;
+
+            document.getElementById('population-count').textContent = `${populationCount}/${maxPlayers} players`;
+            document.getElementById('status').textContent = serverStatus === 'online' ? 'Online' : 'Offline';
+            document.getElementById('status').className = serverStatus === 'online' ? 'server-status-online' : 'server-status-offline';
+        })
+        .catch(error => {
+            console.error('Error fetching server data:', error);
+            document.getElementById('population-count').textContent = 'Failed to load population data';
+            document.getElementById('status').textContent = 'Offline';
+            document.getElementById('status').className = 'server-status-offline';
+        });
+
+    // Copy server address to clipboard
+    const copyButton = document.getElementById('copy-button');
+    if (copyButton) {
+        copyButton.addEventListener('click', function () {
+            navigator.clipboard.writeText(serverAddress).then(function () {
+                alert('Client connect au.monthly.rustralia.com.au copied to clipboard');
+            }, function (err) {
+                console.error('Could not copy text: ', err);
+            });
+        });
+    }
+
+    // Add click event to toggle FAQ answers
+    const faqItems = document.querySelectorAll('.faq-list li');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', () => {
+                // Close all other FAQ items
+                faqItems.forEach(faq => {
+                    if (faq !== item) {
+                        faq.classList.remove('active');
+                        const faqAnswer = faq.querySelector('.faq-answer');
+                        if (faqAnswer) {
+                            faqAnswer.style.maxHeight = '0';
+                            faqAnswer.style.paddingTop = '0';
+                            faqAnswer.style.opacity = '0';
+                        }
+                    }
+                });
+
+                // Toggle the clicked FAQ item
+                item.classList.toggle('active');
+                const answer = item.querySelector('.faq-answer');
+                if (answer) {
+                    if (item.classList.contains('active')) {
+                        answer.style.maxHeight = '500px';
+                        answer.style.paddingTop = '1rem';
+                        answer.style.opacity = '1';
+                    } else {
+                        answer.style.maxHeight = '0';
+                        answer.style.paddingTop = '0';
+                        answer.style.opacity = '0';
+                    }
+                }
+            });
+        }
+    });
+});
+
 </script>
 
 </body>
 </html>
+
 <!--OI stop readin me code ya dog-->

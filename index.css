@@ -565,9 +565,7 @@ footer ul li:nth-child(3) a:before {
 
 /* Rules List */
 .rules-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style-type: none;
 }
 
 .rules-list li {
@@ -586,16 +584,17 @@ footer ul li:nth-child(3) a:before {
     box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
 }
 
-
 .rules-list li .rule-detail {
-    display: none;
-    padding-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #666;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
 }
 
 .rules-list li.active .rule-detail {
-    display: block;
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 1rem;
 }
 
 .rules-list li .rule-title {
@@ -633,6 +632,19 @@ footer ul li:nth-child(3) a:before {
 .arrow-bottom {
     transform: rotate(-45deg);
     transform-origin: top right;
+}
+
+/* Style for email link in rules*/
+#email-link a {
+    color: #CE422B; 
+    text-decoration: none; 
+    transition: color 0.3s ease, text-shadow 0.3s ease; 
+}
+
+#email-link a:hover {
+    color: #942F1F; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+    text-decoration: underline; 
 }
 
 /* Server Pop Section */
