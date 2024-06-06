@@ -1,8 +1,10 @@
 /* GLOBAL SETTINGS */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-* {
-    margin: 0;
+* { 
+	user-select: none;
+    outline: none; 
+	margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -463,7 +465,7 @@ over-view-content p {
 }
 
 .section-heading {
-    font-family: 'open sans', Arial, sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;
     text-align: center;
     font-size: 64px;
     color: #fff;
@@ -484,50 +486,55 @@ over-view-content p {
     transition: all 0.3s;
     text-align: center;
     margin: 20px;
+    z-index: 1; /* Ensure profiles are above other elements */
 }
 
 .profile:hover {
     transform: translateY(25px);
+    z-index: 10; /* Ensure hovered profile is above others */
 }
 
 .profile img {
-    width: 150px; /* Adjusted size */
-    height: 150px; /* Adjusted size */
+    width: 100px; /* Adjusted size */
+    height: 100px; /* Adjusted size */
     border-radius: 50%;
     border: 5px solid #171614;
     filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
     cursor: pointer;
+    object-fit: cover; /* Ensures image maintains aspect ratio and covers the area */
 }
 
 .profile .name, .profile .role {
     position: absolute;
     background-color: #CE422B;
     color: #fff;
-    font-family: 'open sans', Arial, sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;
     padding: 10px 20px;
     border-radius: 100px;
     left: 50%;
     white-space: nowrap;
     transform: translate(-50%, -50px);
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: 16px;
     opacity: 0;
     transition: all 0.3s;
+    z-index: 20; /* Ensure text appears above everything */
 }
 
 .profile .name {
-    bottom: -70px; /* Increased spacing */
+    bottom: -30px; /* Increased spacing */
 }
 
 .profile .role {
-    bottom: -130px; /* Increased spacing */
+    bottom: -80px; /* Increased spacing */
 }
 
 .profile img:hover + .name, .profile img:hover + .name + .role {
     opacity: 1;
     transform: translateX(-50%);
-    box-shadow: 0 10px 20px rgba(86, 86, 198, 0.3);
+    box-shadow: 0 10px 20px rgba(206, 66, 43, 0.3);
 }
+
 
 
 /* Footer Styles */
