@@ -118,7 +118,7 @@ ul li {
 }
 
 .overview-section video {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: 100%;
@@ -139,10 +139,11 @@ ul li {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
 }
 
-over-view-content p {
+.overview-content p {
     font-size: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
 }
+
 
 /* Overview Links */
 .overview-links {
@@ -486,22 +487,22 @@ over-view-content p {
     transition: all 0.3s;
     text-align: center;
     margin: 20px;
-    z-index: 1; /* Ensure profiles are above other elements */
+    z-index: 1; 
 }
 
 .profile:hover {
     transform: translateY(25px);
-    z-index: 10; /* Ensure hovered profile is above others */
+    z-index: 10; 
 }
 
 .profile img {
-    width: 100px; /* Adjusted size */
-    height: 100px; /* Adjusted size */
+    width: 100px; 
+    height: 100px; 
     border-radius: 50%;
     border: 5px solid #171614;
     filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
     cursor: pointer;
-    object-fit: cover; /* Ensures image maintains aspect ratio and covers the area */
+    object-fit: cover; 
 }
 
 .profile .name, .profile .role {
@@ -518,15 +519,15 @@ over-view-content p {
     font-size: 16px;
     opacity: 0;
     transition: all 0.3s;
-    z-index: 20; /* Ensure text appears above everything */
+    z-index: 20; 
 }
 
 .profile .name {
-    bottom: -30px; /* Increased spacing */
+    bottom: -30px; 
 }
 
 .profile .role {
-    bottom: -80px; /* Increased spacing */
+    bottom: -80px; 
 }
 
 .profile img:hover + .name, .profile img:hover + .name + .role {
@@ -873,17 +874,17 @@ footer ul li:nth-child(3) a:before {
     transition: all 0.3s;
     text-align: center;
     margin: 20px;
-    z-index: 1; /* Ensure profiles are above other elements */
+    z-index: 1; 
 }
 
 .profile:hover {
     transform: translateY(25px);
-    z-index: 10; /* Ensure hovered profile is above others */
+    z-index: 10; 
 }
 
 .profile img {
-    width: 100px; /* Adjusted size */
-    height: 100px; /* Adjusted size */
+    width: 100px; 
+    height: 100px; 
     border-radius: 50%;
     border: 5px solid #171614;
     filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
@@ -904,15 +905,15 @@ footer ul li:nth-child(3) a:before {
     font-size: 16px;
     opacity: 0;
     transition: all 0.3s;
-    z-index: 20; /* Ensure text appears above everything */
+    z-index: 20; 
 }
 
 .profile .name {
-    bottom: -30px; /* Increased spacing */
+    bottom: -30px; 
 }
 
 .profile .role {
-    bottom: -80px; /* Increased spacing */
+    bottom: -80px; 
 }
 
 .profile img:hover + .name, .profile img:hover + .name + .role {
@@ -1150,7 +1151,7 @@ footer ul li:nth-child(3) a:before {
 	
 	 #faq ul li .faq-answer {
         max-height: 500px;
-        overflow-y: auto; /* Add vertical scrolling */
+        overflow-y: auto; 
       }
 }
 
@@ -1247,7 +1248,7 @@ footer ul li:nth-child(3) a:before {
 	
 	 #faq ul li .faq-answer {
         max-height: 500px;
-        overflow-y: auto; /* Add vertical scrolling */
+        overflow-y: auto; 
      }
 }
 
