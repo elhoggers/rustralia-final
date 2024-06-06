@@ -87,7 +87,7 @@ ul li {
     width: 100%;
     max-width: 300px;
     text-align: center;
-    transition: transform 0.3s ease-in-out, max-width 0.3s ease-in-out; 
+    transition: transform 0.3s ease-in-out; /* Smooth transition for scale effect */
 }
 
 .shop-item img {
@@ -96,7 +96,6 @@ ul li {
     height: auto;
     border-radius: 10px;
     margin-bottom: 1rem;
-    transition: max-width 0.3s ease-in-out; 
 }
 
 .shop-item h3 {
@@ -113,6 +112,11 @@ ul li {
     margin-top: 1rem; 
 }
 
+/* Hover effect for shop items */
+.shop-item:hover {
+    transform: scale(1.05); /* Scale up slightly */
+}
+
 .btn-buy, .btn-donate {
     background-color: #CE422B;
     color: #fff;
@@ -120,7 +124,7 @@ ul li {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease-in-out; 
+    transition: background-color 0.3s, transform 0.3s ease-in-out; /* Smooth transition */
     font-size: 1rem;
 }
 
@@ -249,14 +253,14 @@ footer ul li a {
     overflow: hidden;
     border: 3px solid #fff;
     z-index: 1;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
     margin-bottom: 20px;
 }
 
 footer ul li a .icon {
     position: relative;
     color: #262626;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
     z-index: 3;
 }
 
@@ -272,7 +276,7 @@ footer ul li a:before {
     left: 0;
     width: 100%;
     height: 100%;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
     z-index: 2;
 }
 
@@ -382,7 +386,7 @@ footer ul li:nth-child(3) a:before {
         display: inline-block;
         margin: 0.5rem auto; 
         transform: scale(1);
-        transition: transform 0.3s ease-in-out; 
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
     }
 
     .shop-item p {
@@ -446,7 +450,7 @@ footer ul li:nth-child(3) a:before {
         display: inline-block;
         margin: 0.5rem auto; 
         transform: scale(1);
-        transition: transform 0.3s ease-in-out; 
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
     }
 
     .shop-item p {
@@ -488,7 +492,7 @@ footer ul li:nth-child(3) a:before {
         margin: 0.5rem auto; 
         padding: 0.5rem; 
         transform: scale(1);
-        transition: transform 0.3s ease-in-out; 
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
     }
 
     .shop-item img {
