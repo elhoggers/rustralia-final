@@ -11,14 +11,17 @@
 </head>
 <body>
     <header>
-        <img src="images/text2.webp" alt="Rustralia Logo" class="logo">
+        <a href="#" class="logo-link"><img src="images/text2.webp" alt="Rustralia Logo" class="logo"></a>
         <nav>
             <ul>
                 <li><a href="#overview" data-scroll>Overview</a></li>
-                <li><a href="#shop" data-scroll>QUEUE SKIP</a></li>
-                <li><a href="#rules" id="rules-link" data-scroll>Rules</a></li>
+				<li><a href="#rules" id="rules-link" data-scroll>Rules</a></li>
+                <li><a href="#shop" data-scroll>QUEUE SKIP</a></li>                
                 <li><a href="#faq" data-scroll>FAQ</a></li>
-                <li><a href="stats.php" data-scroll>Stats</a></li>
+				<li><a href="#news" data-scroll>News</a></li>
+                <li><a href="stats.html">Stats</a></li>
+				<li><a href="handbook.html">Handbook</a></li>
+				
             </ul>
         </nav>
     </header>
@@ -27,8 +30,8 @@
         <video src="images/banner.webm" autoplay muted loop></video>
         <div class="overview-content">
             <div class="background-image"></div>
-            <h2>Welcome to Rustralia</h2>
-            <p>NO.1 Aus community server<br>AU hosted, quick staff support</p>
+            <h2 class="section-heading header-slide-in">Welcome to Rustralia</h2>
+            <p class="section-heading header-slide-in">NO.1 Aus community server<br>AU hosted, quick staff support</p>
         </div>
         <div class="overview-links">
             <a href="https://discord.gg/9BMYjGC" target="_blank"><i class="fab fa-discord icon"></i></a>
@@ -69,7 +72,7 @@
     </section>
 
     <section id="faq" class="faq-section">
-        <h2>Frequently Asked Questions</h2>
+        <h2 class="section-heading header-slide-in">Frequently Asked Questions</h2>
         <ul class="faq-list">
             <li class="faq-item">
                 <div class="faq-question">When is Wipe?</div>
@@ -83,12 +86,12 @@
                 <div class="faq-question">There is an in-game glitch. Can you fix it?</div>
                 <div class="faq-answer">
                     <p>We do not interfere with the natural course of gameplay, nor do we provide compensation for any items lost due to unforeseeable glitches that may occur during gameplay.</p>
-                    <p>These glitches may include but are not limited to:</p>
+                    <p><strong>These glitches may include but are not limited to:</strong></p>
                     <ul>
-                        <li>Falling through the world and losing your items.</li>
-                        <li>Dropping loot on the ground and it disappearing or getting stuck.</li>
-                        <li>Placing walls that cannot be removed/rotated after the timer expires.</li>
-                        <li>Losing loot after a server rollback.</li>
+                        <p class="dot-point">Falling through the world and losing your items.</p>
+                        <p class="dot-point">Dropping loot on the ground and it disappearing or getting stuck.</p>
+                        <p class="dot-point">Placing walls that cannot be removed/rotated after the timer expires.</p>
+                        <p class="dot-point">Losing loot after a server rollback.</p>
                     </ul>
                 </div>
             </li>
@@ -101,13 +104,13 @@
             <li class="faq-item">
                 <div class="faq-question">How do I report a player for cheating?</div>
                 <div class="faq-answer">
-                    <p>Maintaining fair and enjoyable gameplay is of utmost importance to us. Therefore, in the event that a player is suspected of violating our rules or engaging in cheating, we encourage the community to report such incidents using our official reporting channels. This can be done through:</p>
+                    <p>Maintaining fair and enjoyable gameplay is of utmost importance to us. Therefore, in the event that a player is suspected of violating our rules or engaging in cheating, we encourage the community to report such incidents using our official reporting channels. <strong></strong>This can be done through:</p>
                     <ul>
-                        <li>Rust's in-game F7 reporting system, which will immediately notify our administrators of any in-game reports. This report is also sent to Rusts EAC (Easy Anti Cheat) which may ban them for cheating.</li>
-                        <li>Players can also submit a support ticket through our Discord server, ensuring that sufficient and concrete evidence is provided to substantiate any reports (screenshots, video proof etc.).</li>
+                        <p class="dot-point">Rust's in-game F7 reporting system, which will immediately notify our administrators of any in-game reports. This report is also sent to Rusts EAC (Easy Anti Cheat) which may ban them for cheating.</p>
+                        <p class="dot-point">Players can also submit a support ticket through our Discord server, ensuring that sufficient and concrete evidence is provided to substantiate any reports (screenshots, video proof etc.).</p>
                     </ul>
                     <p>We thank you for your cooperation in helping us to ensure a safe and fair gaming experience for all!</p>
-                </div>
+		       </div>
             </li>
             <li class="faq-item">
                 <div class="faq-question">Do we really keep all our researched blueprints forever on the "No BP Wipe" server?</div>
@@ -197,11 +200,12 @@
                 </li>
             </ul>
             <p>By playing on our servers you are consenting to our rules and understand the consequences for not following them</p>
+			<p><a href="handbook.html" target="_blank">View more info in our handbook</a></p>
         </div>
     </div>
 	
     <section id="staff" class="staff-section">
-        <h2 class="section-heading">Meet Our Staff</h2>
+        <h2 class="section-heading header-slide-in">Meet Our Staff</h2>
         <div class="staff-container">
             <div class="profile">
                 <img src="images/bushcake.gif" alt="Staff Member 1">
@@ -256,6 +260,11 @@
         </div>
     </section>
 
+	<section id="news" class="news-section">
+    <h2 class="section-heading header-slide-in">Latest News</h2>
+    <div id="news-container"></div>
+</section>
+	
     <footer>
         <ul>
             <li><a href="https://discord.gg/9BMYjGC" target="_blank"><i class="fab fa-discord icon"></i></a></li>
@@ -264,172 +273,241 @@
         </ul>
         <p>&copy; 2024 Rustralia. All rights reserved.</p>
     </footer>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Smooth scrolling
-        document.querySelectorAll('a[data-scroll]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Smooth scrolling
+    document.querySelectorAll('a[data-scroll]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
-        });
-
-        // Get the popup
-        var popup = document.getElementById("rulesPopup");
-
-        // Get the link that opens the popup
-        var link = document.getElementById("rules-link");
-
-        // Get the <span> element that closes the popup
-        var closeBtn = document.getElementsByClassName("close-btn")[0];
-
-        // When the user clicks the link, open the popup
-        if (link) {
-            link.onclick = function() {
-                popup.style.display = "block";
-            }
-        }
-
-        // When the user clicks on <span> (x), close the popup
-        if (closeBtn) {
-            closeBtn.onclick = function() {
-                popup.style.display = "none";
-            }
-        }
-
-        // When the user clicks anywhere outside of the popup, close it
-        window.onclick = function(event) {
-            if (event.target == popup) {
-                popup.style.display = "none";
-            }
-        }
-
-        // Add click event to toggle rule details
-        const ruleItems = document.querySelectorAll('.rules-list li');
-
-        ruleItems.forEach(item => {
-            const title = item.querySelector('.rule-title');
-            if (title) {
-                title.addEventListener('click', () => {
-                    // Close all other rule items
-                    ruleItems.forEach(rule => {
-                        if (rule !== item) {
-                            rule.classList.remove('active');
-                            const ruleDetail = rule.querySelector('.rule-detail');
-                            if (ruleDetail) {
-                                ruleDetail.style.maxHeight = '0';
-                                ruleDetail.style.paddingTop = '0';
-                                ruleDetail.style.opacity = '0';
-                            }
-                        }
-                    });
-
-                    // Toggle the clicked rule item
-                    item.classList.toggle('active');
-                    const detail = item.querySelector('.rule-detail');
-                    if (detail) {
-                        if (item.classList.contains('active')) {
-                            detail.style.maxHeight = 'none'; // Fully expand the element
-                            detail.style.paddingTop = '1rem';
-                            detail.style.opacity = '1';
-                        } else {
-                            detail.style.maxHeight = '0';
-                            detail.style.paddingTop = '0';
-                            detail.style.opacity = '0';
-                        }
-                    }
-                });
-            }
-        });
-
-        // Add email obfuscation
-        const emailUser = "contactrustralia";
-        const emailDomain = "gmail.com";
-        const emailAddress = `${emailUser}@${emailDomain}`;
-        const emailLinkElement = document.getElementById('email-link');
-
-        if (emailLinkElement) {
-            emailLinkElement.innerHTML = `<a href="mailto:${emailAddress}">${emailAddress}</a>`;
-        }
-
-        // Fetch server population data from BattleMetrics API
-        const apiUrl = 'https://api.battlemetrics.com/servers/15465350';
-        const serverAddress = 'au.monthly.rustralia.com.au';
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const populationCount = data.data.attributes.players;
-                const maxPlayers = data.data.attributes.maxPlayers;
-                const serverStatus = data.data.attributes.status;
-
-                document.getElementById('population-count').textContent = `${populationCount}/${maxPlayers} players`;
-                document.getElementById('status').textContent = serverStatus === 'online' ? 'Online' : 'Offline';
-                document.getElementById('status').className = serverStatus === 'online' ? 'server-status-online' : 'server-status-offline';
-            })
-            .catch(error => {
-                console.error('Error fetching server data:', error);
-                document.getElementById('population-count').textContent = 'Failed to load population data';
-                document.getElementById('status').textContent = 'Offline';
-                document.getElementById('status').className = 'server-status-offline';
-            });
-
-        // Copy server address to clipboard
-        const copyButton = document.getElementById('copy-button');
-        if (copyButton) {
-            copyButton.addEventListener('click', function () {
-                navigator.clipboard.writeText(serverAddress).then(function () {
-                    alert('Client connect au.monthly.rustralia.com.au copied to clipboard');
-                }, function (err) {
-                    console.error('Could not copy text: ', err);
-                });
-            });
-        }
-
-        // Add click event to toggle FAQ answers
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
-
-            // Ensure all FAQ answers are initially hidden
-            answer.style.maxHeight = '0';
-            answer.style.paddingTop = '0';
-            answer.style.opacity = '0';
-            answer.style.transition = 'max-height 0.3s ease-out, padding-top 0.3s ease-out, opacity 0.3s ease-out';
-
-            if (question) {
-                question.addEventListener('click', () => {
-                    // Close all other FAQ items
-                    faqItems.forEach(faq => {
-                        if (faq !== item) {
-                            faq.classList.remove('active');
-                            const faqAnswer = faq.querySelector('.faq-answer');
-                            if (faqAnswer) {
-                                faqAnswer.style.maxHeight = '0';
-                                faqAnswer.style.paddingTop = '0';
-                                faqAnswer.style.opacity = '0';
-                            }
-                        }
-                    });
-
-                    // Toggle the clicked FAQ item
-                    item.classList.toggle('active');
-                    if (item.classList.contains('active')) {
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        answer.style.paddingTop = '1rem';
-                        answer.style.opacity = '1';
-                    } else {
-                        answer.style.maxHeight = '0';
-                        answer.style.paddingTop = '0';
-                        answer.style.opacity = '0';
-                    }
-                });
-            }
         });
     });
+
+    // Scroll to top when logo is clicked
+    document.querySelector('.logo-link').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Handle scroll animations for headers
+    const headers = document.querySelectorAll('.header-slide-in');
+
+    const handleScroll = () => {
+        headers.forEach(header => {
+            const rect = header.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                header.classList.add('header-visible');
+            }
+        });
+    };
+
+    // Check headers on scroll and on load
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    // Get the popup
+    var popup = document.getElementById("rulesPopup");
+
+    // Get the link that opens the popup
+    var link = document.getElementById("rules-link");
+
+    // Get the <span> element that closes the popup
+    var closeBtn = document.getElementsByClassName("close-btn")[0];
+
+    // When the user clicks the link, open the popup
+    if (link) {
+        link.onclick = function() {
+            popup.style.display = "block";
+        }
+    }
+
+    // When the user clicks on <span> (x), close the popup
+    if (closeBtn) {
+        closeBtn.onclick = function() {
+            popup.style.display = "none";
+        }
+    }
+
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = "none";
+        }
+    }
+
+    // Add click event to toggle rule details
+    const ruleItems = document.querySelectorAll('.rules-list li');
+
+    ruleItems.forEach(item => {
+        const title = item.querySelector('.rule-title');
+        if (title) {
+            title.addEventListener('click', () => {
+                // Close all other rule items
+                ruleItems.forEach(rule => {
+                    if (rule !== item) {
+                        rule.classList.remove('active');
+                        const ruleDetail = rule.querySelector('.rule-detail');
+                        if (ruleDetail) {
+                            ruleDetail.style.maxHeight = '0';
+                            ruleDetail.style.paddingTop = '0';
+                            ruleDetail.style.opacity = '0';
+                        }
+                    }
+                });
+
+                // Toggle the clicked rule item
+                item.classList.toggle('active');
+                const detail = item.querySelector('.rule-detail');
+                if (detail) {
+                    if (item.classList.contains('active')) {
+                        detail.style.maxHeight = detail.scrollHeight + 'px'; // Fully expand the element
+                        detail.style.paddingTop = '1rem';
+                        detail.style.opacity = '1';
+                    } else {
+                        detail.style.maxHeight = '0';
+                        detail.style.paddingTop = '0';
+                        detail.style.opacity = '0';
+                    }
+                }
+            });
+        }
+    });
+
+    // Add email obfuscation
+    const emailUser = "contactrustralia";
+    const emailDomain = "gmail.com";
+    const emailAddress = `${emailUser}@${emailDomain}`;
+    const emailLinkElement = document.getElementById('email-link');
+
+    if (emailLinkElement) {
+        emailLinkElement.innerHTML = `<a href="mailto:${emailAddress}">${emailAddress}</a>`;
+    }
+
+    // Fetch server population data from BattleMetrics API
+    const apiUrl = 'https://api.battlemetrics.com/servers/15465350';
+    const serverAddress = 'au.monthly.rustralia.com.au';
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const populationCount = data.data.attributes.players;
+            const maxPlayers = data.data.attributes.maxPlayers;
+            const serverStatus = data.data.attributes.status;
+
+            document.getElementById('population-count').textContent = `${populationCount}/${maxPlayers} players`;
+            document.getElementById('status').textContent = serverStatus === 'online' ? 'Online' : 'Offline';
+            document.getElementById('status').className = serverStatus === 'online' ? 'server-status-online' : 'server-status-offline';
+        })
+        .catch(error => {
+            console.error('Error fetching server data:', error);
+            document.getElementById('population-count').textContent = 'Failed to load population data';
+            document.getElementById('status').textContent = 'Offline';
+            document.getElementById('status').className = 'server-status-offline';
+        });
+
+    // Copy server address to clipboard
+    const copyButton = document.getElementById('copy-button');
+    if (copyButton) {
+        copyButton.addEventListener('click', function () {
+            navigator.clipboard.writeText(serverAddress).then(function () {
+                alert('Client connect au.monthly.rustralia.com.au copied to clipboard');
+            }, function (err) {
+                console.error('Could not copy text: ', err);
+            });
+        });
+    }
+
+    // Add click event to toggle FAQ answers
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        // Ensure all FAQ answers are initially hidden
+        answer.style.maxHeight = '0';
+        answer.style.paddingTop = '0';
+        answer.style.opacity = '0';
+        answer.style.transition = 'max-height 0.5s ease, opacity 0.5s ease, padding-top 0.5s ease';
+
+        if (question) {
+            question.addEventListener('click', () => {
+                // Close all other FAQ items
+                faqItems.forEach(faq => {
+                    if (faq !== item) {
+                        faq.classList.remove('active');
+                        const faqAnswer = faq.querySelector('.faq-answer');
+                        if (faqAnswer) {
+                            faqAnswer.style.maxHeight = '0';
+                            faqAnswer.style.paddingTop = '0';
+                            faqAnswer.style.opacity = '0';
+                        }
+                    }
+                });
+
+                // Toggle the clicked FAQ item
+                item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.style.paddingTop = '1rem';
+                    answer.style.opacity = '1';
+                } else {
+                    answer.style.maxHeight = '0';
+                    answer.style.paddingTop = '0';
+                    answer.style.opacity = '0';
+                }
+            });
+        }
+    });
+
+    // Fetch and display news
+    const RSS_URL = 'https://rust.facepunch.com/rss/news'; // Correct RSS feed URL
+
+    axios.get(RSS_URL)
+        .then(response => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(response.data, "application/xml");
+            const items = xmlDoc.getElementsByTagName("item");
+            const newsContainer = document.getElementById('news-container');
+
+            for (let i = 0; i < items.length; i++) {
+                const title = items[i].getElementsByTagName("title")[0].textContent;
+                const link = items[i].getElementsByTagName("link")[0].textContent;
+                const description = items[i].getElementsByTagName("description")[0].textContent;
+                const pubDate = items[i].getElementsByTagName("pubDate")[0].textContent;
+
+                const news = document.createElement('div');
+                news.className = 'news';
+                news.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                    <p><small>${pubDate}</small></p>
+                    <a href="${link}" target="_blank">Read more</a>
+                `;
+                newsContainer.appendChild(news);
+            }
+
+            // Apply Intersection Observer
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            });
+
+            const newsItems = document.querySelectorAll('.news');
+            newsItems.forEach(news => {
+                observer.observe(news);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching or parsing RSS feed:', error);
+        });
+});
 </script>
 
 </body>

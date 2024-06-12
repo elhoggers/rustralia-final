@@ -26,11 +26,26 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease-in-out;
+	position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header img.logo {
     height: 60px; 
     margin-left: 5rem; 
+}
+/* Slide-in and fade-in styles for headers */
+.header-slide-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.header-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 nav ul {
@@ -80,6 +95,22 @@ a:hover {
     text-decoration: none;
     color: #CE422B; 
 }
+
+/* Dot point before paragraphs */
+.dot-point {
+    position: relative;
+    padding-left: 1.5em; /* Adjust the padding to make room for the dot */
+}
+
+.dot-point::before {
+    content: '•'; /* Dot point character */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em; /* Adjust the size of the dot */
+    color: #CE422B; /* Dot color */
+}
+
 
 /* Section Styles */
 section {
@@ -163,7 +194,7 @@ ul li {
     line-height: 10px; 
     font-size: 45px; 
     border-radius: 50%;
-    color: #007bff;
+    color: #CE422B;
     border: 3px solid #fff;
     transition: transform 0.3s ease, background-color 0.3s ease;
     position: relative; 
@@ -200,7 +231,7 @@ ul li {
 
 /* SM Icon Colors in Overview add more is easy come easy go*/
 .overview-links a:nth-child(1):before {
-    background: #586AEA; /* Discord */
+    background: #CE422B; /* Discord */
 }
 /* Fade effect for the shop section */
 #blank-section {
@@ -403,10 +434,11 @@ ul li {
 }
 
 #faq ul li .faq-answer {
-    max-height: 200px;
-    overflow-y: auto;
-    opacity: 0;
-	transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    max-height: none; /* Allow full expansion */
+    overflow-y: visible; /* Remove vertical scrolling */
+    opacity: 1; /* Ensure the content is fully visible */
+    padding-top: 1rem; /* Add padding for better spacing */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding-top 0.3s ease-out; /* Smooth transitions */
 }
 
 #faq ul li.active .faq-answer {
@@ -536,6 +568,62 @@ ul li {
     box-shadow: 0 10px 20px rgba(206, 66, 43, 0.3);
 }
 
+/* News Section */
+.news-section {
+    padding: 2rem 10%;
+    text-align: center;
+    background-color: #171614;
+    color: #fff;
+}
+
+.news-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.news h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.news p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.news a {
+    color: #CE422B;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.news a:hover {
+    color: #942F1F;
+}
+
+.news.show {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 
 /* Footer Styles */
@@ -605,15 +693,15 @@ footer ul li a:hover:before {
 
 /* SM Icon Colors */
 footer ul li:nth-child(1) a:before {
-    background: #586AEA; /* Discord */
+    background: #CE422B; /* Discord */
 }
 
 footer ul li:nth-child(2) a:before {
-    background: #0E2656; /* Steam */
+    background: #CE422B; /* Steam */
 }
 
 footer ul li:nth-child(3) a:before {
-    background: #000000; /* Twitter */
+    background: #CE422B; /* Twitter */
 }
 
 
@@ -637,13 +725,23 @@ footer ul li:nth-child(3) a:before {
     border: 1px solid #888;
     width: 95%; 
     max-width: 1300px; 
+	max-height: calc(100vh - 40px);
     animation: slideDown 0.5s;
     border-radius: 10px;
     overflow: hidden;
-	max-height: 80vh;
 	overflow-y: auto;
 }
 
+.popup-content a {
+    color: #CE422B; /* Visible color for the link */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.popup-content a:hover {
+    color: #942F1F; /* Darker color on hover */
+    text-decoration: underline;
+}
 
 @keyframes slideDown {
     from { top: -100%; }
@@ -689,11 +787,13 @@ footer ul li:nth-child(3) a:before {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    padding-top: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding-top 0.5s ease;
 }
 
 .rules-list li.active .rule-detail {
-    max-height: 500px;
+    max-height: 500px; /* Adjust this value as needed */
+    overflow: visible;
     opacity: 1;
     padding-top: 1rem;
 }
@@ -982,14 +1082,34 @@ footer ul li:nth-child(3) a:before {
 }
 
 @media (max-width: 768px) {
-	.staff-container {
-        flex-direction: column;
-        align-items: center;
+	#faq ul li .faq-answer {
+        max-height: 500px; /* Set a maximum height */
+        overflow-y: auto; /* Enable vertical scrolling */
+        opacity: 1;
+        padding-top: 1rem;
+        transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding-top 0.3s ease-out;
     }
 
-    .profile img:hover + .name, .profile img:hover + .name + .role {
-        transform: translate(-50%, 0);
+	.staff-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
+
+    .profile {
+        flex: 1 1 40%; /* Adjust the flex-basis to fit two profiles side-by-side */
+        margin: 5px; /* Add some margin for spacing */
+    }
+
+    .profile img {
+        width: 80px; /* Reduce image size */
+        height: 80px;
+    }
+
+    .profile .name, .profile .role {
+        font-size: 14px; /* Adjust font size */
+    }
+	
     .server-info-section {
         flex-direction: column;
         gap: 1rem;
@@ -1250,6 +1370,73 @@ footer ul li:nth-child(3) a:before {
         max-height: 500px;
         overflow-y: auto; 
      }
+	
+	.profile {
+        flex: 1 1 45%; /* Further adjustment for smaller screens */
+    }
+
+    .profile img {
+        width: 70px; /* Further reduce image size */
+        height: 70px;
+    }
+
+    .profile .name, .profile .role {
+        font-size: 12px; /* Further adjust font size */
+    }
 }
 
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 16px; /* Increase the width of the scrollbar */
+}
 
+::-webkit-scrollbar-track {
+  background: transparent; /* Remove the background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #CE422B, #FF6347); /* Gradient color for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a more distinct drop shadow */
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #b83622, #FF4500); /* Darker gradient on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+::-webkit-scrollbar-button {
+  display: none; /* Remove the arrows */
+}
+
+/* Custom Scrollbar for Firefox */
+html {
+  scrollbar-width: thick; /* Makes the scrollbar thicker */
+  scrollbar-color: linear-gradient(45deg, #CE422B, #FF6347) transparent; /* Thumb and transparent track */
+}
+
+/* Optional: To further customize the appearance for Firefox */
+html::-webkit-scrollbar {
+  width: 16px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #CE422B, #FF6347);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #b83622, #FF4500);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+html::-webkit-scrollbar-button {
+  display: none; /* Remove the arrows */
+}
