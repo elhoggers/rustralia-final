@@ -395,6 +395,139 @@ ul li {
     font-size: 1.5rem;
     font-weight: 700;
 }
+/* news section */
+.news-section {
+    padding: 2rem 10%;
+    text-align: center;
+    position: relative;
+    background-color: #171614;
+    color: #fff;
+    overflow: hidden;
+    z-index: 1; /* Ensure content is above the background */
+}
+
+.news-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/rust-news-beach.webp'); /* Use forward slashes for the image URL */
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px); /* Adjust the blur level as needed */
+    z-index: -1;
+    opacity: 0.9; /* Adjust opacity for better visibility */
+}
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2; /* Ensure content is above the background */
+}
+
+.post-card {
+    background-color: #171614;
+    border-radius: 5px;
+    overflow: hidden;
+    width: calc(33.33% - 1rem); /* Adjust width for 3 items per row */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1rem;
+    z-index: 3; /* Ensure cards are above the background */
+}
+
+.post-card:hover {
+    transform: scale(1.05);
+}
+
+.card-media {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Fixed height for all cards */
+    overflow: hidden;
+}
+
+.post-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1rem;
+    display: flex;
+	background-color: #171614;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.entry-header {
+    background-color: #171614;
+    margin-bottom: 0.2rem;
+    margin-left: 0; /* Adjust the margin to move it left */
+    padding-left: 0.5rem; /* Add padding to move content right */
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem; /* Adjust the padding to shrink the header box */
+}
+
+.entry-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.1rem; /* Adjust the margin to shrink the header box */
+    color: #CE422B; /* Red color for title */
+}
+
+.news-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+}
+
+.entry-summary {
+    color: #ddd;
+    font-size: 0.9rem;
+    flex-grow: 1;
+    margin-top: 0.5rem;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2; /* Ensure pagination is above the background */
+}
+
+.page-link {
+    color: #CE422B;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    text-decoration: none;
+    border: 1px solid #CE422B;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.page-link:hover {
+    background-color: #CE422B;
+    color: #fff;
+}
+
+.page-link.active {
+    background-color: #CE422B;
+    color: #fff;
+}
 
 /* FAQ Section */
 #faq {
@@ -569,6 +702,17 @@ ul li {
 }
 
 /* News Section */
+.header-slide-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.header-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .news-section {
     padding: 2rem 10%;
     text-align: center;
@@ -576,56 +720,77 @@ ul li {
     color: #fff;
 }
 
-.news-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
 }
 
-#news-container {
+.post-card {
+    background-color: #2C2C2C;
+    border-radius: 5px;
+    overflow: hidden;
+    width: calc(33.33% - 1rem); /* Adjust width for 3 items per row */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.news {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1.5rem;
-    width: 80%;
-    max-width: 600px;
     text-align: left;
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    margin-bottom: 1.5rem;
 }
 
-.news h3 {
-    font-size: 1.5rem;
+.post-card:hover {
+    transform: scale(1.05);
+}
+
+.card-media {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Fixed height for the media container */
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.post-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the container while maintaining aspect ratio */
+}
+
+.card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.entry-header {
     margin-bottom: 0.5rem;
 }
 
-.news p {
-    font-size: 1rem;
+.entry-title {
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
 
-.news a {
+.news-link {
     color: #CE422B;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-.news a:hover {
-    color: #942F1F;
+.news-link:hover {
+    text-decoration: underline;
 }
 
-.news.show {
-    opacity: 1;
-    transform: translateX(0);
+.entry-summary {
+    color: #ddd;
+    font-size: 0.9rem;
 }
-
-
 /* Footer Styles */
 footer {
     background: #0C0B0B;
@@ -703,7 +868,6 @@ footer ul li:nth-child(2) a:before {
 footer ul li:nth-child(3) a:before {
     background: #CE422B; /* Twitter */
 }
-
 
 /* Rules Popup */
 .popup {
@@ -834,6 +998,7 @@ footer ul li:nth-child(3) a:before {
     transform: rotate(-45deg);
     transform-origin: top right;
 }
+
 
 /* Style for email link in rules*/
 #email-link a {
@@ -1034,6 +1199,12 @@ footer ul li:nth-child(3) a:before {
     }
 }
 
+@media (max-width: 1024px) {
+    .post-card {
+        width: calc(50% - 1rem); /* Adjust width for 2 items per row on medium screens */
+    }
+}
+
 @media (max-width: 992px) {
     .server-info-section {
         flex-direction: row;
@@ -1090,6 +1261,10 @@ footer ul li:nth-child(3) a:before {
         transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding-top 0.3s ease-out;
     }
 
+	.post-card {
+        width: 100%; /* Adjust width for 1 item per row on small screens */
+    }
+	
 	.staff-container {
         display: flex;
         flex-wrap: wrap;
