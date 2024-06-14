@@ -1274,7 +1274,7 @@ footer ul li:nth-child(3) a:before {
 }
 
 @media (max-width: 768px) {
-	section {
+    section {
         padding: 2rem 2%;
     }
 
@@ -1295,8 +1295,8 @@ footer ul li:nth-child(3) a:before {
     header img.logo {
         height: 40px;
     }
-	
-	#faq ul li .faq-answer {
+
+    #faq ul li .faq-answer {
         max-height: 500px; /* Set a maximum height */
         overflow-y: auto; /* Enable vertical scrolling */
         opacity: 1;
@@ -1304,11 +1304,7 @@ footer ul li:nth-child(3) a:before {
         transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding-top 0.3s ease-out;
     }
 
-	.post-card {
-        width: 100%; /* Adjust width for 1 item per row on small screens */
-    }
-	
-	.staff-container {
+    .staff-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -1327,7 +1323,7 @@ footer ul li:nth-child(3) a:before {
     .profile .name, .profile .role {
         font-size: 14px; /* Adjust font size */
     }
-	
+
     .server-info-section {
         flex-direction: column;
         gap: 1rem;
@@ -1352,17 +1348,6 @@ footer ul li:nth-child(3) a:before {
     .button {
         padding: 0.7rem 1.2rem; 
         font-size: 0.9rem; 
-    }
-
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    header img.logo {
-        height: 50px;
-        margin: 0;
     }
 
     nav ul {
@@ -1408,7 +1393,7 @@ footer ul li:nth-child(3) a:before {
 }
 
 @media (max-width: 576px) {
-	section {
+    section {
         padding: 1rem 2%;
     }
 
@@ -1429,7 +1414,7 @@ footer ul li:nth-child(3) a:before {
     header img.logo {
         height: 30px;
     }
-	
+
     .server-info-section {
         flex-direction: column;
         gap: 0.5rem;
@@ -1455,17 +1440,6 @@ footer ul li:nth-child(3) a:before {
     .button {
         padding: 0.6rem 1rem; 
         font-size: 0.8rem; 
-    }
-
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    header img.logo {
-        height: 40px;
-        margin: 0;
     }
 
     nav ul {
@@ -1508,13 +1482,12 @@ footer ul li:nth-child(3) a:before {
         height: 80px;
         font-size: 30px;
     }
-	
-	 #faq ul li .faq-answer {
+
+    #faq ul li .faq-answer {
         max-height: 500px;
         overflow-y: auto; 
-      }
+    }
 }
-
 
 @media (max-width: 480px) {
     header {
@@ -1605,13 +1578,13 @@ footer ul li:nth-child(3) a:before {
         height: 15px; 
         width: 15px; 
     }
-	
-	 #faq ul li .faq-answer {
+
+    #faq ul li .faq-answer {
         max-height: 500px;
         overflow-y: auto; 
-     }
-	
-	.profile {
+    }
+
+    .profile {
         flex: 1 1 45%; /* Further adjustment for smaller screens */
     }
 
