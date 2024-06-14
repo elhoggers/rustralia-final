@@ -539,30 +539,35 @@ ul li {
     background: rgba(255, 255, 255, 0.8);
     color: #333;
     margin: 0.5rem 0;
-    padding: 1rem;
     border-radius: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.5s ease, padding-top 0.5s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     cursor: pointer; /* Ensure the whole list item is clickable */
+    position: relative;
+    z-index: 1;
+    padding: 1rem; /* Move padding to the li element */
 }
 
 #faq ul li:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 2; /* Ensure the hovered item is above others */
+}
+
+#faq ul li.active {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Consistent box-shadow for active state */
 }
 
 #faq ul li .faq-answer {
     max-height: 0;
-    overflow: visible;
+    overflow: auto;
     opacity: 0;
-    padding-top: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease, padding-top 0.5s ease;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 #faq ul li.active .faq-answer {
-    max-height: 1000px; /* Increased max-height to ensure all content is visible */
+    max-height: 1000px; /* Ensure all content is visible */
     opacity: 1;
-    padding-top: 1rem;
 }
 
 #faq ul li .faq-question {
@@ -581,6 +586,38 @@ ul li {
     display: inline-block;
     text-align: left;
 }
+
+.dot-point {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333; /* Use a color that matches your design */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    border-left: 3px solid #CE422B; /* Left border for emphasis */
+    transition: all 0.3s ease-in-out;
+}
+
+.dot-point::before {
+    content: '•';
+    position: absolute;
+    left: 5px;
+    color: #CE422B;
+    font-size: 1.5em;
+    line-height: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sub-point {
+    padding-left: 40px;
+}
+
+.sub-point::before {
+    font-size: 1.2em;
+    left: 25px;
+}
+
 
 /* Staff Section */
 .staff-section {
