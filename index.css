@@ -21,7 +21,7 @@ body {
 
 /* Header Styles */
 header {
-    background: #0C0B0B;
+    background: #0C0C0C;
     color: #fff;
     padding: 1.5rem 3rem; 
     display: flex;
@@ -234,7 +234,7 @@ ul li {
 
 /* Shop Section */
 #blank-section {
-    background-color: #0C0B0B;
+    background-color: #0C0C0C;
     padding: 2rem 0; 
     text-align: center;
 }
@@ -246,7 +246,7 @@ ul li {
 /* Server Info Section */
 .server-info-section {
     display: flex;
-	background-color: #0C0B0B;
+	background-color: #0C0C0C;
     justify-content: center;
     align-items: center;
 	gap: 10rem;
@@ -609,7 +609,7 @@ ul li {
 
 /* Staff Section */
 .staff-section {
-    background-color: #0C0B0B !important;
+    background-color: #0C0C0C !important;
     color: #fff;
     padding: 2rem 0;
     text-align: center;
@@ -1208,7 +1208,7 @@ footer ul li:nth-child(3) a:before {
     box-shadow: 0 10px 20px rgba(206, 66, 43, 0.3);
 }
 
-/* Responsive size */
+/* Responsive Design */
 @media (max-width: 1200px) {
     .server-info-section {
         flex-direction: row;
