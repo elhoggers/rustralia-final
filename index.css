@@ -903,11 +903,18 @@ footer ul li:nth-child(3) a:before {
     overflow: auto;
 }
 
+.popup-content h2 {
+    color: #CE422B; /* Light heading color */
+}
+
+.popup-content p {
+    color: #E7E7E7; /* Light heading color */
+}
+
 .popup-content {
-    background-color: #fff;
+    background-color: #171614;
     margin: 5% auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 95%; 
     max-width: 1300px; 
 	max-height: calc(100vh - 40px);
@@ -954,7 +961,7 @@ footer ul li:nth-child(3) a:before {
 
 .rules-list li {
     background: rgba(255, 255, 255, 0.8);
-    color: #333;
+    color: #111;
     margin: 0.5rem 0;
     padding: 1rem;
     border-radius: 5px;
@@ -985,41 +992,12 @@ footer ul li:nth-child(3) a:before {
 
 .rules-list li .rule-title {
     font-weight: bold;
-    color: #333;
+    color: #111;
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.arrow {
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
-    display: inline-block;
-    transition: transform 0.1s;
-    position: relative;
-}
-
-.arrow-top,
-.arrow-bottom {
-    background-color: #666;
-    height: 2px;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-}
-
-.arrow-top {
-    transform: rotate(45deg);
-    transform-origin: bottom right;
-}
-
-.arrow-bottom {
-    transform: rotate(-45deg);
-    transform-origin: top right;
-}
-
 
 /* Style for email link in rules*/
 #email-link a {
