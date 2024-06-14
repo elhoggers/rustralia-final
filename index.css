@@ -1,6 +1,8 @@
 /* GLOBAL SETTINGS */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+
+
 * { 
 	user-select: none;
     outline: none; 
@@ -96,22 +98,6 @@ a:hover {
     color: #CE422B; 
 }
 
-/* Dot point before paragraphs */
-.dot-point {
-    position: relative;
-    padding-left: 1.5em; /* Adjust the padding to make room for the dot */
-}
-
-.dot-point::before {
-    content: '•'; /* Dot point character */
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 1.2em; /* Adjust the size of the dot */
-    color: #CE422B; /* Dot color */
-}
-
-
 /* Section Styles */
 section {
     padding: 2rem 10%;
@@ -146,6 +132,18 @@ ul li {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.overview-section::after {
+    content: "";
+    position: absolute;
+    bottom: -30px; /* Adjust to place it closer to the section */
+    left: 0;
+    width: 100%;
+    height: 60px; /* Adjust to match your image height */
+    background: url('images/bar-dark.webp') no-repeat bottom center;
+    background-size: cover; /* Adjust to fit the section width */
+    z-index: -1; /* Ensure it stays behind the section content */
 }
 
 .overview-section video {
@@ -233,37 +231,10 @@ ul li {
 .overview-links a:nth-child(1):before {
     background: #CE422B; /* Discord */
 }
-/* Fade effect for the shop section */
-#blank-section {
-    background-color: #171614;
-    padding: 2rem 0; 
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-#blank-section::before, #blank-section::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100px;
-    left: 0;
-    z-index: -1;
-}
-
-#blank-section::before {
-    top: -100px;
-    background: linear-gradient(to bottom, rgba(23, 22, 20, 0), #171614);
-}
-
-#blank-section::after {
-    bottom: 0px;
-    background: linear-gradient(to top, rgba(23, 22, 20, 0), #171614);
-}
 
 /* Shop Section */
 #blank-section {
-    background-color: #171614;
+    background-color: #0C0B0B;
     padding: 2rem 0; 
     text-align: center;
 }
@@ -275,12 +246,14 @@ ul li {
 /* Server Info Section */
 .server-info-section {
     display: flex;
+	background-color: #0C0B0B;
     justify-content: center;
     align-items: center;
 	gap: 10rem;
 }
 
 .server-info-box {
+	
     background-color: #fff;
     padding: 0; 
     border-radius: 10px;
@@ -413,7 +386,7 @@ ul li {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/rust-news-beach.webp'); /* Use forward slashes for the image URL */
+    background-image: url('images/533217-rust-video-games.webp'); /* Use forward slashes for the image URL */
     background-size: cover;
     background-position: center;
     filter: blur(3px); /* Adjust the blur level as needed */
@@ -531,9 +504,22 @@ ul li {
 
 /* FAQ Section */
 #faq {
-    background: url('images/533217-rust-video-games.webp') no-repeat center center/cover;
+    position: relative;
     color: #FFFFFF;
-    padding: 1rem 10%;
+    padding: 1rem 10% 7rem 10%; /* Adjust padding: top right bottom left */
+    overflow: hidden; /* To ensure the pseudo-element is contained */
+}
+
+#faq::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: url('images/rust-news-beach.webp') no-repeat center center/cover;
+    filter: blur(2px); /* Adjust the blur value as needed */
+    z-index: -1; /* Ensure it stays behind the content */
 }
 
 #faq ul {
@@ -545,11 +531,9 @@ ul li {
     color: #CE422B;
 }
 
-
 #faq ul a:hover {
     color: #DC4B00;
 }
-
 
 #faq ul li {
     background: rgba(255, 255, 255, 0.8);
@@ -622,20 +606,52 @@ ul li {
     text-align: left;
 }
 
+
 /* Staff Section */
 .staff-section {
-    background-color: #171614;
+    background-color: #0C0B0B !important;
     color: #fff;
     padding: 2rem 0;
     text-align: center;
+    position: relative;
+    overflow: visible; /* Allow pseudo-elements to overflow */
+    margin-top: -60px; /* Overlap with the previous section */
+    z-index: 2; /* Ensure it sits above the previous section */
+}
+
+.staff-section::before {
+    content: "";
+    position: absolute;
+    top: -60px; /* Adjust to place it outside the box */
+    left: 0;
+    width: 100%;
+    height: 60px; /* Adjust to match your image height */
+    background: url('images/bar-dark.webp') no-repeat top center;
+    background-size: cover; /* Adjust to fit the section width */
+    z-index: -1; /* Ensure it stays behind the section content */
+}
+
+.staff-section::after {
+    content: "";
+    position: absolute;
+    bottom: -60px; /* Adjust to place it outside the box */
+    left: 0;
+    width: 100%;
+    height: 60px; /* Adjust to match your image height */
+    background: url('images/bar-dark.webp') no-repeat bottom center;
+    background-size: cover; /* Adjust to fit the section width */
+    transform: scaleY(-1); /* Flip the image vertically */
+    z-index: -1; /* Ensure it stays behind the section content */
 }
 
 .section-heading {
     font-family: 'Open Sans', Arial, sans-serif;
     text-align: center;
-    font-size: 64px;
+    font-size: 48px; /* Adjusted to make it smaller */
     color: #fff;
-    margin: 0 0 70px;
+    margin: 0 0 30px; /* Adjusted to reduce the space */
+    position: relative;
+    z-index: 3; /* Ensure it stays above the pseudo-elements */
 }
 
 .staff-container {
@@ -645,29 +661,31 @@ ul li {
     width: 90%;
     max-width: 1440px;
     margin: 0 auto;
+    position: relative;
+    z-index: 3; /* Ensure it stays above the pseudo-elements */
 }
 
 .profile {
     position: relative;
     transition: all 0.3s;
     text-align: center;
-    margin: 20px;
-    z-index: 1; 
+    margin: 10px; /* Adjusted to reduce the space between profiles */
+    z-index: 1;
 }
 
 .profile:hover {
-    transform: translateY(25px);
-    z-index: 10; 
+    transform: translateY(-10px); /* Adjusted to reduce the hover effect distance */
+    z-index: 10;
 }
 
 .profile img {
-    width: 100px; 
-    height: 100px; 
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 5px solid #171614;
     filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
     cursor: pointer;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .profile .name, .profile .role {
@@ -684,15 +702,15 @@ ul li {
     font-size: 16px;
     opacity: 0;
     transition: all 0.3s;
-    z-index: 20; 
+    z-index: 20;
 }
 
 .profile .name {
-    bottom: -30px; 
+    bottom: -30px;
 }
 
 .profile .role {
-    bottom: -80px; 
+    bottom: -80px;
 }
 
 .profile img:hover + .name, .profile img:hover + .name + .role {
@@ -700,6 +718,7 @@ ul li {
     transform: translateX(-50%);
     box-shadow: 0 10px 20px rgba(206, 66, 43, 0.3);
 }
+
 
 /* News Section */
 .header-slide-in {
@@ -718,6 +737,8 @@ ul li {
     text-align: center;
     background-color: #171614;
     color: #fff;
+    position: relative;
+    z-index: 1; /* Ensure it sits above the torn effect */
 }
 
 .news-container {
@@ -1253,6 +1274,28 @@ footer ul li:nth-child(3) a:before {
 }
 
 @media (max-width: 768px) {
+	section {
+        padding: 2rem 2%;
+    }
+
+    .post-card {
+        width: 100%; /* 1 item per row */
+    }
+
+    .news-container {
+        justify-content: center; /* Center the items */
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    header img.logo {
+        height: 40px;
+    }
+	
 	#faq ul li .faq-answer {
         max-height: 500px; /* Set a maximum height */
         overflow-y: auto; /* Enable vertical scrolling */
@@ -1365,6 +1408,28 @@ footer ul li:nth-child(3) a:before {
 }
 
 @media (max-width: 576px) {
+	section {
+        padding: 1rem 2%;
+    }
+
+    .post-card {
+        width: 100%; /* 1 item per row */
+    }
+
+    .news-container {
+        justify-content: center; /* Center the items */
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
+    header img.logo {
+        height: 30px;
+    }
+	
     .server-info-section {
         flex-direction: column;
         gap: 0.5rem;
