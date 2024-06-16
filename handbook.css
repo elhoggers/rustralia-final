@@ -72,7 +72,7 @@ section h2 {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px; /* Increased max-width for larger screens */
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -91,6 +91,26 @@ section h2 {
 .handbook-detail {
     font-size: 1.2rem;
     color: #ddd;
+}
+
+.dot-point {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    border-left: 3px solid #CE422B; /* Left border for emphasis */
+    transition: all 0.3s ease-in-out;
+}
+
+.dot-point::before {
+    content: '•';
+    position: absolute;
+    left: 5px;
+    color: #CE422B;
+    font-size: 1.5em;
+    line-height: 1;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Footer Styles */
@@ -169,4 +189,21 @@ footer ul li:nth-child(2) a:before {
 
 footer ul li:nth-child(3) a:before {
     background: #CE422B; /* Twitter */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        padding: 2rem 5%;
+    }
+    .handbook-item {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    .handbook-title {
+        font-size: 1.25rem;
+    }
+    .handbook-detail, .dot-point {
+        font-size: 1rem;
+    }
 }
