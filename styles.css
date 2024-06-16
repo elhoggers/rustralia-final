@@ -1,0 +1,873 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root {
+  --background-color: #151413;
+  --header-color: #252925f2;
+  --secondary-color: #202420f2;
+  --rust-button-red: #962f20;
+  --rust-hover-red: #b83b28;
+  --rust-text-red: #c79897;
+  --rust-button-green: #3d4b27;
+  --rust-hover-green: #586c39;
+  --rust-text-green: #a6cd63;
+  --rust-button-blue: #1d425f;
+  --rust-hover-blue: #275579;
+  --rust-text-blue: #489ad4;
+  --rust-button-gray: #595552;
+  --rust-hover-gray: #6f6b67;
+  --rust-text-gray: #ccc3be;
+}
+
+* {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.main-navbar-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--header-color);
+  padding: 20px clamp(20px, 3vw, 50px);
+  z-index: 3;
+}
+
+.navbar-textlogo {
+  color: #ffff;
+  font-size: clamp(14px, 5vw, 24px);
+  letter-spacing: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: clamp(130px, 43vw, 800px);
+}
+
+.navbar-textlogo a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.navbar-login-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 20px;
+  color: var(--rust-text-green);
+  background-color: var(--rust-button-green);
+  font-weight: 700;
+}
+
+.navbar-login-button:hover {
+  background-color: var(--rust-hover-green);
+}
+
+.fa-arrow-right-to-bracket {
+  color: var(--rust-text-green);
+  margin-right: 8px;
+}
+
+.user-profile {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--rust-button-gray);
+  padding: 2px 15px;
+}
+
+.user-profile:hover {
+  background-color: var(--rust-hover-gray);
+}
+
+.user-profile-avatar {
+  width: clamp(22px, 2vw, 30px);
+  height: clamp(22px, 2vw, 30px);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.user-profile-name {
+  color: var(--rust-text-gray);
+  font-size: clamp(14px, 1vw, 18px);
+}
+
+.navbar-links:hover .user-profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-profile-dropdown {
+  display: none;
+  position: absolute;
+  background-color: var(--rust-button-gray);
+  width: clamp(108px, 7vw, 130px);
+  z-index: 3;
+}
+
+.user-profile-button, .user-logout-button {
+  border:none;
+  cursor: pointer;
+  text-align: center;
+  font-size: clamp(14px, 1vw, 18px);
+  font-weight: 900;
+  padding: 10px;
+  width: 100%;
+}
+
+.user-profile-button {
+  color: var(--rust-text-blue);
+  background-color: var(--rust-button-blue);
+}
+
+.user-profile-button:hover {
+  background-color: var(--rust-hover-blue);
+}
+
+.user-logout-button {
+  color: var(--rust-text-red);
+  background-color: var(--rust-button-red);
+}
+
+.user-logout-button:hover {
+  background-color: var(--rust-hover-red);
+}
+
+.user-profile-dropdown .fa-circle-xmark, .user-profile-dropdown .fa-user {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.leaderboards-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-inline: 80px;
+  top: clamp(50px, 20vw, 170px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.2) blur(5px);
+  z-index: 1;
+}
+
+/* Server List */
+.server-selection {
+  z-index: 2;
+}
+
+.server-selection-header, .server-leaderboard th {
+  color: #ffff;
+  background-color: var(--header-color);
+  padding: 18px 20px;
+  font-size: clamp(16px, 1vw, 22px);
+  margin:0;
+}
+
+.server-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  overflow: auto;
+  max-height: 695px;
+  z-index: 2;
+}
+
+.server-list button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.server-list button, .server-select {
+  width: clamp(55px, 4vw, 90px);
+  height: clamp(55px, 4vw, 90px);
+  border-radius: 50%;
+  margin: 15px 0;
+}
+
+.server-select {
+  filter: grayscale(1);
+  transition: 0.3s all ease-in-out;
+}
+
+.server-select.active {
+  filter: grayscale(0);
+}
+
+.server-select:hover {
+  filter: grayscale(.50);
+}
+
+/* Server Leaderboard */
+.server-leaderboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  margin-left: 10px;
+}
+
+.server-leaderboard {
+  background-color: var(--secondary-color);
+}
+
+.server-leaderboard-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: var(--header-color);
+}
+
+.server-leaderboard-header {
+  color: #ffff;
+  margin:0;
+  font-size: clamp(16px, 1vw, 22px);
+}
+
+th a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Leaderboard Search */
+.server-leaderboard-search {
+  padding: 10px 10px 10px 36px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: var(--background-color);
+}
+
+.server-leaderboard-search:focus { 
+  color: white; 
+}
+
+.server-leaderboard-header-container div {
+  position: relative;
+}
+
+.fa-magnifying-glass {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: gray;
+}
+
+.server-leaderboard th, .server-leaderboard td {
+  color: white;
+  padding-right: 20px;
+  font-size: clamp(14px, 1vw, 25px);
+}
+
+.server-leaderboard td {
+  padding: 10px 20px;
+  font-size: clamp(15px, 1vw, 20px);
+  text-align: center;
+}
+
+.steam-profile {
+  text-decoration: none;
+  color: #ffff;
+}
+
+.steam-profile:hover {
+  color: var(--rust-text-blue);
+}
+
+.fa-solid {
+  font-size: clamp(14px, 1vw, 18px);
+  margin-right: 5px;
+}
+
+.view-profile-button {
+  cursor: pointer;
+  display: flex;
+  border: none;
+  align-items: center;
+  background-color: var(--rust-button-blue);
+  color: var(--rust-text-blue);
+  padding: 10px;
+  font-size: clamp(10px, 1vw, 18px);
+}
+
+.view-profile-button:hover {
+  background-color: var(--rust-hover-blue);
+}
+
+.leaderboard-result:nth-child(odd) {
+  background-color: var(--header-color);
+}
+
+.server-leaderboard-container {
+  max-height: 580px;
+  overflow-y: scroll;
+  background-color: var(--header-color);
+}
+
+/* Custom Scrollbars */
+.server-leaderboard-container::-webkit-scrollbar, .profile-data-container::-webkit-scrollbar, .server-list::-webkit-scrollbar, .server-list::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.profile-data-container::-webkit-scrollbar-track, .server-list::-webkit-scrollbar-track {
+  background: var(--header-color);
+}
+.server-leaderboard-container::-webkit-scrollbar-track, .server-list::-webkit-scrollbar-track, .server-list::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+.server-leaderboard-container::-webkit-scrollbar-thumb, .profile-data-container::-webkit-scrollbar-thumb, .server-list::-webkit-scrollbar-thumb, .server-list::-webkit-scrollbar-thumb {
+  background: var(--rust-button-gray);
+}
+.server-leaderboard-container::-webkit-scrollbar-thumb:hover, .profile-data-container::-webkit-scrollbar-thumb:hover, .server-list::-webkit-scrollbar-thumb:hover, .server-list::-webkit-scrollbar-thumb:hover {
+  background: var(--rust-hover-gray);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  padding: 10px;
+}
+
+.number-button, .previous-button, .next-button {
+  text-decoration: none;
+  color: var(--rust-text-gray);
+  background-color: var(--rust-button-gray);
+  padding: 5px clamp(5px, 1vw, 10px);
+  margin-right: 5px;
+  font-size: clamp(10px, 1vw, 18px);
+}
+
+.number-button.active {
+  background-color: var(--rust-button-green);
+  color: var(--rust-text-green);
+}
+
+.fa-sort-up, .fa-sort-down {
+  margin-left: 10px;
+}
+
+/* Profile Page */
+.player-profile-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 25px 32px;
+  top: 105px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.player-view {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+  padding: 40px 40px 80px 40px;
+}
+
+.player-view-header, .profile-data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  background-color: var(--header-color);
+  padding: 10px 20px;
+  margin: 0;
+  font-size: clamp(16px, 1vw, 20px);
+}
+
+.player-view-header a {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(12px, 1vw, 16px);
+  padding-right: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.player-name a:hover {
+  color: var(--rust-text-blue);
+}
+
+.player-view-header h1 {
+  margin: 0;
+}
+
+.profile-table-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.wipebutton {
+  margin-right: 5px;
+}
+
+.profile-table-buttons a, .main-table-buttons a {
+  margin: 0;
+  text-decoration: none;
+  color: var(--rust-text-red);
+  background-color: var(--rust-button-red);
+  padding: 3px 10px;
+  font-weight: 900;
+  font-size: clamp(14px, 1vw, 18px);
+  margin-right: 5px;
+}
+
+.main-table-buttons {
+  font-size: 20px;
+  padding: 3px 10px;
+}
+
+.profile-table-buttons a:hover, .main-table-buttons a:hover {
+  background-color: var(--rust-hover-red);
+}
+
+.profile-table-buttons a.active, .main-table-buttons a.active {
+  color: var(--rust-text-green);
+  background-color: var(--rust-button-green);
+}
+
+.profile-table-buttons a.active:hover, .main-table-buttons a.active:hover {
+  background-color: var(--rust-hover-green);
+}
+
+.player-view-container {
+  z-index: 1;
+}
+
+.profile-row-1, .profile-row-2, .profile-row-3 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  z-index: 1;
+}
+
+.profile-data {
+  width: 100%;
+  padding-inline: 10px;
+}
+
+.profile-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px 4px 10px;
+  background-color: var(--secondary-color);
+  max-width: 758px;
+  max-height: 710px;
+  overflow: auto;
+}
+
+.profile-data-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-header, .profile-result {
+  margin: 0;
+  color: var(--rust-text-gray);
+  background-color: var(--rust-button-gray);
+  text-align: center;
+  padding: 10px;
+  white-space: nowrap;
+  font-size: clamp(12px, 1vw, 16px);
+}
+
+.profile-result {
+  margin-bottom: 20px;
+  background-color: var(--rust-hover-gray);
+}
+
+.weapon-profile-header {
+  position: relative;
+  color: var(--rust-text-gray);
+  background-color: var(--rust-button-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s all ease-in-out;
+}
+
+.weapon-image {
+  width: clamp(40px, 5vw, 80px);
+  height: clamp(40px, 5vw, 80px);
+  padding: 8px;
+}
+
+.weapon-profile-header::after {
+  content: attr(weapon-name);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: var(--rust-text-blue);
+  background-color: var(--rust-button-blue);
+  font-size: clamp(10px, 0.8vw, 22px);
+  font-weight: 900;
+  padding: 5px;
+  opacity: 0;
+  transition: 0.3s all ease-in-out;
+}
+
+.weapon-profile-header:hover:after {
+  top: 0px;
+  opacity: 1;
+}
+
+.player-model {
+  width: 230px;
+}
+
+.hover-text {
+  position: absolute;
+  bottom: 10px;
+  font-size: 14px;
+  color: var(--rust-text-gray);
+  background-color: var(--rust-button-gray);
+  padding: 5px 10px;
+  transition: 0.3s all ease-in-out;
+}
+
+.hover-text i {
+  font-size: 14px;
+}
+
+.hitcount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  color: var(--rust-text-blue);
+  background-color: var(--rust-button-blue);
+  font-size: 24px;
+  font-weight: 900;
+  padding: 5px 10px;
+}
+
+.hitcount:hover {
+  background-color: var(--rust-hover-blue);
+}
+
+.hitcount:hover .hitcount-result {
+  background-color: var(--rust-button-blue);
+}
+
+.hitcount-part {
+  font-size: 13px;
+  margin: 0;
+  margin-right: 8px;
+}
+
+.hitcount-result {
+  font-size: 13px;
+  margin: 0;
+  background-color: var(--rust-hover-blue);
+  padding: 5px;
+}
+
+.head {
+  top: 70px;
+  right: 15px;
+}
+
+.torso {
+  top: 220px;
+  left: 110px;
+}
+
+.leftarm {
+  bottom: 400px;
+  left: 10px;
+}
+
+.leftarm h1 {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+.rightarm {
+  bottom: 400px;
+  right: 10px;
+}
+
+.leftleg {
+  bottom: 240px;
+  left: 10px;
+}
+
+.leftleg h1 {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+.rightleg {
+  bottom: 240px;
+  right: 10px;
+}
+
+.leftfoot {
+  bottom: 60px;
+  left: 15px;
+}
+
+.leftfoot h1 {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+.rightfoot {
+  bottom: 20px;
+  right: 15px;
+}
+
+.hits-container {
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+}
+
+.player-view:hover .hits-container {
+  opacity: 1;
+}
+
+.player-view:hover .hover-text {
+  opacity: 0;
+}
+
+/* Profile Page Icons */
+.profile-icon {
+  margin-right: 8px;
+}
+
+/* Error Page */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: clamp(100px, 25vw, 800px);
+  text-align: center;
+  height: 100vh;
+}
+
+.error-container h1, .error-container p {
+  padding: 15px 30px;
+  margin: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.error-container h1 {
+  color: var(--rust-text-red);
+  background-color: var(--rust-button-red);
+  font-size: 30px;
+}
+
+.error-container p {
+  color: var(--rust-text-red);
+  background-color: rgb(97, 31, 21);
+  font-size: 20px;
+}
+
+.error-container a {
+  color: var(--rust-text-blue);
+  background-color: var(--rust-button-blue);
+  padding: 15px 30px;
+  text-decoration: none;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 900;
+  width: 100%;
+  z-index: 2;
+}
+
+.error-container a:hover {
+  background-color: var(--rust-hover-blue);
+}
+
+.fa-circle-exclamation {
+  font-size: 30px;
+}
+
+@media screen and (min-width:320px) and (max-width: 820px) {
+  .leaderboards-wrapper {
+    flex-direction: column;
+    padding-inline: 15px;
+    top: clamp(94px, 20vw, 100px);
+  }
+
+  .server-list { 
+    flex-direction: row;
+  }
+
+  .server-list button, .server-select {
+    margin: 10px 10px;
+  }
+
+  .server-leaderboard-wrapper {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .server-leaderboard-header-container {
+    flex-direction: column;
+  }
+
+  .server-leaderboard-header {
+    margin-bottom: 8px;
+  }
+
+  .main-table-buttons {
+    margin-bottom: 10px;
+  }
+  
+  .view-profile-button {
+    flex-direction: column;
+  }
+
+  .fa-eye {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .player-profile-wrapper {
+    flex-direction: column;
+  }
+
+  .profile-data-container {
+    padding: 20px 0 4px 0;
+  }
+
+  .profile-row-1, .profile-row-2, .profile-row-3 {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .error-container h1, .error-container p, .fa-circle-exclamation, .error-container a {
+    font-size: clamp(14px, 1vw, 20px);
+  }
+}
+
+@media screen and (min-width:500px) and (max-width: 600px) {
+  .torso {
+    left: clamp(155px, 32vw, 205px);
+  }
+}
+
+@media screen and (min-width:400px) and (max-width: 500px) {
+  .torso {
+    left: clamp(100px, 26vw, 150px);
+  }
+}
+
+@media screen and (min-width:340px) and (max-width: 400px) {
+  .hitcount {
+    padding: 3px 4px;
+  }
+
+  .hitcount-part {
+    font-size: clamp(8px, 1vw, 13px);
+  }
+  
+  .hitcount-result {
+    font-size: clamp(8px, 1vw, 13px);
+  }
+  
+  .head {
+    top: 62px;
+    right: 10px;
+  }
+
+  .leftarm, .rightarm {
+    bottom: 350px;
+  }
+
+  .leftleg, .rightleg {
+    bottom: 190px;
+  }
+
+  .torso {
+    top: clamp(172px, 39vh, 250px);
+    left: clamp(80px, 31vw, 129px);
+  }
+
+  .navbar-textlogo {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 140px;
+  }
+}
+
+@media screen and (min-width:300px) and (max-width: 340px) {
+  .hitcount {
+    padding: 3px 4px;
+  }
+
+  .hitcount-part {
+    font-size: clamp(8px, 1vw, 13px);
+  }
+  
+  .hitcount-result {
+    font-size: clamp(8px, 1vw, 13px);
+  }
+  
+  .head {
+    top: 62px;
+    right: 10px;
+  }
+
+  .leftarm, .rightarm {
+    bottom: 350px;
+  }
+
+  .leftleg, .rightleg {
+    bottom: 190px;
+  }
+
+  .torso {
+    top: 172px;
+    left: clamp(80px, 18vw, 129px);
+  }
+}
