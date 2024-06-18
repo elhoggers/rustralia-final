@@ -160,7 +160,7 @@ ul li {
     height: auto;
     transform: translate(-50%, -50%);
     object-fit: cover;
-    filter: grayscale(.8);
+    filter: grayscale(.4);
     z-index: -1;
 }
 
