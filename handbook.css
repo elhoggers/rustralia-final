@@ -1,6 +1,6 @@
 /* GLOBAL SETTINGS */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 * {
     user-select: none;
     outline: none;
@@ -49,7 +49,9 @@ section {
 }
 
 section h2 {
-    font-size: 2rem;
+	font-family: bebas neue;
+	letter-spacing: 0.1em;
+    font-size: 4rem;
     margin-bottom: 1rem;
 }
 
@@ -206,4 +208,60 @@ footer ul li:nth-child(3) a:before {
     .handbook-detail, .dot-point {
         font-size: 1rem;
     }
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 16px; /* Increase the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Remove the background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #CE422B, #FF6347); /* Gradient color for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a more distinct drop shadow */
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #b83622, #FF4500); /* Darker gradient on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+::-webkit-scrollbar-button {
+  display: none; /* Remove the arrows */
+}
+
+/* Custom Scrollbar for Firefox */
+html {
+  scrollbar-width: thick; /* Makes the scrollbar thicker */
+  scrollbar-color: linear-gradient(45deg, #CE422B, #FF6347) transparent; /* Thumb and transparent track */
+}
+
+/* Optional: To further customize the appearance for Firefox */
+html::-webkit-scrollbar {
+  width: 16px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #CE422B, #FF6347);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #b83622, #FF4500);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+html::-webkit-scrollbar-button {
+  display: none; /* Remove the arrows */
 }
