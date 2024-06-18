@@ -534,38 +534,42 @@
                 });
             }
 
-         // Add click event to toggle FAQ answers
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
+         const faqItems = document.querySelectorAll('.faq-item');
 
-                // Ensure all FAQ answers are closed initially
+    // Ensure all FAQ answers are closed initially
+    faqItems.forEach(item => {
+        const answer = item.querySelector('.faq-answer');
+        answer.style.maxHeight = '0';
+        answer.style.opacity = '0';
+    });
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all other FAQ items
+            faqItems.forEach(faq => {
+                faq.classList.remove('active');
+                faq.querySelector('.faq-answer').style.maxHeight = '0';
+                faq.querySelector('.faq-answer').style.opacity = '0';
+            });
+
+            // Toggle the clicked FAQ item
+            if (!isActive) {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.opacity = '1';
+            } else {
+                item.classList.remove('active');
                 answer.style.maxHeight = '0';
                 answer.style.opacity = '0';
-
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-
-                    // Close all other FAQ items
-                    faqItems.forEach(faq => {
-                        faq.classList.remove('active');
-                        faq.querySelector('.faq-answer').style.maxHeight = '0';
-                        faq.querySelector('.faq-answer').style.opacity = '0';
-                    });
-
-                    // Toggle the clicked FAQ item
-                    item.classList.toggle('active');
-                    if (!isActive) {
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        answer.style.opacity = '1';
-                    } else {
-                        answer.style.maxHeight = '0';
-                        answer.style.opacity = '0';
-                    }
-                });
-            });
+            }
         });
+    });
+});
 
     </script>
 </body>
