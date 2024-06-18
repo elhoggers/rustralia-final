@@ -77,17 +77,17 @@ section h2 {
 .stats-item {
     position: relative;
     width: 100%;
-    max-width: 500px; /* Increased the max-width */
+    max-width: 500px; 
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
-    border: 2px solid transparent; /* Border for the pulsing effect */
-    border-radius: 14px; /* Added rounded corners */
+    border: 2px solid transparent; 
+    border-radius: 14px; 
 }
 
 .stats-item:hover {
     transform: scale(1.05);
-    border-color: #CE422B; /* Border color on hover */
+    border-color: #CE422B; 
     animation: pulse 1.5s infinite;
 }
 
@@ -107,8 +107,8 @@ section h2 {
     width: 100%;
     height: auto;
     display: block;
-    border-top-left-radius: 10px; /* Rounded top corners of the image */
-    border-top-right-radius: 10px; /* Rounded top corners of the image */
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
 }
 
 .stats-label {
@@ -116,22 +116,22 @@ section h2 {
     background-color: rgba(206, 66, 43, 0.9);
     color: #fff;
     text-align: center;
-    padding: 0.3rem 0; /* Reduced padding */
+    padding: 0.3rem 0; 
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-top: -5px; /* Overlap a bit with the image to create rounded effect */
+    margin-top: -5px; 
 }
 
 .stats-label h3 {
 	font-family: bebas neue;
 	letter-spacing: 0.03em;
     margin: 0;
-    font-size: 2rem; /* Reduced font size */
+    font-size: 2rem; 
 }
 
 .stats-label p {
     margin: 0;
-    font-size: 1.5rem; /* Reduced font size */
+    font-size: 1.5rem; 
 }
 
 .unavailable {
@@ -245,13 +245,13 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 3.5rem; /* Adjust font size */
+        font-size: 3.5rem; 
     }
 }
 
 @media (max-width: 1024px) {
     .post-card {
-        width: calc(50% - 1rem); /* Adjust width for 2 items per row on medium screens */
+        width: calc(50% - 1rem); 
     }
 
     .overview-section video {
@@ -265,7 +265,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 3rem; /* Adjust font size */
+        font-size: 3rem; 
     }
 }
 
@@ -303,7 +303,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 2.5rem; /* Adjust font size */
+        font-size: 2.5rem; 
     }
 }
 
@@ -340,7 +340,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 2.2rem; /* Adjust font size */
+        font-size: 2.2rem; 
     }
 }
 
@@ -350,11 +350,11 @@ footer ul li:nth-child(3) a:before {
     }
 
     .post-card {
-        width: 100%; /* 1 item per row */
+        width: 100%; 
     }
 
     .news-container {
-        justify-content: center; /* Center the items */
+        justify-content: center; 
     }
 
     header {
@@ -368,8 +368,8 @@ footer ul li:nth-child(3) a:before {
     }
 
     #faq ul li .faq-answer {
-        max-height: 500px; /* Set a maximum height */
-        overflow-y: auto; /* Enable vertical scrolling */
+        max-height: 500px; 
+        overflow-y: auto; 
         opacity: 1;
         padding-top: 1rem;
         transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding-top 0.3s ease-out;
@@ -382,17 +382,17 @@ footer ul li:nth-child(3) a:before {
     }
 
     .profile {
-        flex: 1 1 40%; /* Adjust the flex-basis to fit two profiles side-by-side */
-        margin: 5px; /* Add some margin for spacing */
+        flex: 1 1 40%; 
+        margin: 5px; 
     }
 
     .profile img {
-        width: 80px; /* Reduce image size */
+        width: 80px; 
         height: 80px;
     }
 
     .profile .name, .profile .role {
-        font-size: 14px; /* Adjust font size */
+        font-size: 14px; 
     }
 
     .server-info-section {
@@ -451,7 +451,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 2rem; /* Adjust font size */
+        font-size: 2rem; 
     }
 
     .overview-links {
@@ -473,11 +473,11 @@ footer ul li:nth-child(3) a:before {
     }
 
     .post-card {
-        width: 100%; /* 1 item per row */
+        width: 100%;
     }
 
     .news-container {
-        justify-content: center; /* Center the items */
+        justify-content: center; 
     }
 
     header {
@@ -547,7 +547,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 1.8rem; /* Adjust font size */
+        font-size: 1.8rem; 
     }
 
     .overview-links {
@@ -610,7 +610,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 1.5rem; /* Adjust font size */
+        font-size: 1.5rem; 
     }
 
     .overview-links {
@@ -668,54 +668,54 @@ footer ul li:nth-child(3) a:before {
     }
 
     .profile {
-        flex: 1 1 45%; /* Further adjustment for smaller screens */
+        flex: 1 1 45%; 
     }
 
     .profile img {
-        width: 70px; /* Further reduce image size */
+        width: 70px; 
         height: 70px;
     }
 
     .profile .name, .profile .role {
-        font-size: 12px; /* Further adjust font size */
+        font-size: 12px; 
     }
 }
 
 @media (max-width: 360px) {
     .overview-section h2 {
-        font-size: 1.2rem; /* Adjust font size */
+        font-size: 1.2rem; 
     }
 }
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 16px; /* Increase the width of the scrollbar */
+  width: 16px; 
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; /* Remove the background of the scrollbar track */
+  background: transparent; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #CE422B, #FF6347); /* Gradient color for the thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a more distinct drop shadow */
-  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+  background: linear-gradient(45deg, #CE422B, #FF6347);
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #b83622, #FF4500); /* Darker gradient on hover */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+  background: linear-gradient(45deg, #b83622, #FF4500); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
 }
 
 ::-webkit-scrollbar-button {
-  display: none; /* Remove the arrows */
+  display: none; 
 }
 
 /* Custom Scrollbar for Firefox */
 html {
-  scrollbar-width: thick; /* Makes the scrollbar thicker */
-  scrollbar-color: linear-gradient(45deg, #CE422B, #FF6347) transparent; /* Thumb and transparent track */
+  scrollbar-width: thick; 
+  scrollbar-color: linear-gradient(45deg, #CE422B, #FF6347) transparent; 
 }
 
 /* Optional: To further customize the appearance for Firefox */
@@ -740,5 +740,5 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 html::-webkit-scrollbar-button {
-  display: none; /* Remove the arrows */
+  display: none; 
 }

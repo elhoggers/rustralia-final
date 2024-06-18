@@ -143,13 +143,13 @@ ul li {
 .overview-section::after {
     content: "";
     position: absolute;
-    bottom: -30px; /* Adjust to place it closer to the section */
+    bottom: -30px; 
     left: 0;
     width: 100%;
-    height: 60px; /* Adjust to match your image height */
+    height: 60px; 
     background: url('images/bar-dark.webp') no-repeat bottom center;
-    background-size: cover; /* Adjust to fit the section width */
-    z-index: -1; /* Ensure it stays behind the section content */
+    background-size: cover; 
+    z-index: -1; 
 }
 
 .overview-section video {
@@ -291,11 +291,11 @@ ul li {
     margin: 0;
     position: absolute;
     top: 1px;
-    left: 0; /* Adjusted to sit flush */
+    left: 0; 
     background-color: rgba(206, 66, 43, 0.95);
     color: #fff;
     padding: 4px 50px;
-    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%); /* Added slant */
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%); 
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
@@ -396,7 +396,7 @@ ul li {
     background-color: #171614;
     color: #fff;
     overflow: hidden;
-    z-index: 1; /* Ensure content is above the background */
+    z-index: 1; 
 }
 
 .news-section::before {
@@ -406,12 +406,12 @@ ul li {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/533217-rust-video-games.webp'); /* Use forward slashes for the image URL */
+    background-image: url('images/533217-rust-video-games.webp'); 
     background-size: cover;
     background-position: center;
-    filter: blur(3px); /* Adjust the blur level as needed */
+    filter: blur(3px); 
     z-index: -1;
-    opacity: 0.9; /* Adjust opacity for better visibility */
+    opacity: 0.9; 
 }
 
 .news-container {
@@ -420,21 +420,21 @@ ul li {
     justify-content: space-between;
     gap: 1.5rem;
     position: relative;
-    z-index: 2; /* Ensure content is above the background */
+    z-index: 2; 
 }
 
 .post-card {
     background-color: #171614;
     border-radius: 5px;
     overflow: hidden;
-    width: calc(33.33% - 1rem); /* Adjust width for 3 items per row */
+    width: calc(33.33% - 1rem); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     text-align: left;
     margin-bottom: 1rem;
-    z-index: 3; /* Ensure cards are above the background */
+    z-index: 3; 
 }
 
 .post-card:hover {
@@ -444,7 +444,7 @@ ul li {
 .card-media {
     position: relative;
     width: 100%;
-    height: 200px; /* Fixed height for all cards */
+    height: 200px; 
     overflow: hidden;
 }
 
@@ -465,16 +465,16 @@ ul li {
 .entry-header {
     background-color: #171614;
     margin-bottom: 0.2rem;
-    margin-left: 0; /* Adjust the margin to move it left */
-    padding-left: 0.5rem; /* Add padding to move content right */
+    margin-left: 0; 
+    padding-left: 0.5rem; 
     padding-top: 0.2rem;
-    padding-bottom: 0.2rem; /* Adjust the padding to shrink the header box */
+    padding-bottom: 0.2rem; 
 }
 
 .entry-title {
     font-size: 1.3rem;
-    margin-bottom: 0.1rem; /* Adjust the margin to shrink the header box */
-    color: #CE422B; /* Red color for title */
+    margin-bottom: 0.1rem; 
+    color: #CE422B; 
 }
 
 .news-link {
@@ -502,7 +502,7 @@ ul li {
     justify-content: center;
     margin-top: 2rem;
     position: relative;
-    z-index: 2; /* Ensure pagination is above the background */
+    z-index: 2; 
 }
 
 .page-link {
@@ -529,8 +529,8 @@ ul li {
 #faq {
     position: relative;
     color: #FFFFFF;
-    padding: 1rem 10% 7rem 10%; /* Adjust padding: top right bottom left */
-    overflow: hidden; /* To ensure the pseudo-element is contained */
+    padding: 1rem 10% 7rem 10%; 
+    overflow: hidden; 
 }
 
 #faq::before {
@@ -541,8 +541,8 @@ ul li {
     width: calc(100% + 20px);
     height: calc(100% + 20px);
     background: url('images/rust-news-beach.webp') no-repeat center center/cover;
-    filter: blur(2px); /* Adjust the blur value as needed */
-    z-index: -1; /* Ensure it stays behind the content */
+    filter: blur(2px); 
+    z-index: -1; 
 }
 
 #faq ul {
@@ -565,20 +565,20 @@ ul li {
     border-radius: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.5s ease, padding-top 0.5s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    cursor: pointer; /* Ensure the whole list item is clickable */
+    cursor: pointer; 
     position: relative;
     z-index: 1;
-    padding: 1rem; /* Move padding to the li element */
+    padding: 1rem; 
 }
 
 #faq ul li:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 2; /* Ensure the hovered item is above others */
+    z-index: 2; 
 }
 
 #faq ul li.active {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Consistent box-shadow for active state */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
 }
 
 #faq ul li .faq-answer {
@@ -589,7 +589,7 @@ ul li {
 }
 
 #faq ul li.active .faq-answer {
-    max-height: 1000px; /* Ensure all content is visible */
+    max-height: 1000px; 
     opacity: 1;
 }
 
@@ -615,9 +615,9 @@ ul li {
     padding-left: 20px;
     margin-bottom: 10px;
     font-size: 1.2rem;
-    color: #333; /* Use a color that matches your design */
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
-    border-left: 3px solid #CE422B; /* Left border for emphasis */
+    color: #333; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-left: 3px solid #CE422B; 
     transition: all 0.3s ease-in-out;
 }
 
@@ -649,44 +649,44 @@ ul li {
     padding: 2rem 0;
     text-align: center;
     position: relative;
-    overflow: visible; /* Allow pseudo-elements to overflow */
-    margin-top: -60px; /* Overlap with the previous section */
-    z-index: 2; /* Ensure it sits above the previous section */
+    overflow: visible; 
+    margin-top: -60px; 
+    z-index: 2; 
 }
 
 .staff-section::before {
     content: "";
     position: absolute;
-    top: -60px; /* Adjust to place it outside the box */
+    top: -60px; 
     left: 0;
     width: 100%;
-    height: 60px; /* Adjust to match your image height */
+    height: 60px; 
     background: url('images/bar-dark.webp') no-repeat top center;
-    background-size: cover; /* Adjust to fit the section width */
-    z-index: -1; /* Ensure it stays behind the section content */
+    background-size: cover; 
+    z-index: -1; 
 }
 
 .staff-section::after {
     content: "";
     position: absolute;
-    bottom: -60px; /* Adjust to place it outside the box */
+    bottom: -60px; 
     left: 0;
     width: 100%;
-    height: 60px; /* Adjust to match your image height */
+    height: 60px; 
     background: url('images/bar-dark.webp') no-repeat bottom center;
-    background-size: cover; /* Adjust to fit the section width */
-    transform: scaleY(-1); /* Flip the image vertically */
-    z-index: -1; /* Ensure it stays behind the section content */
+    background-size: cover; 
+    transform: scaleY(-1); 
+    z-index: -1; 
 }
 
 .section-heading {
     font-family: 'Open Sans', Arial, sans-serif;
     text-align: center;
-    font-size: 48px; /* Adjusted to make it smaller */
+    font-size: 48px; 
     color: #fff;
-    margin: 0 0 30px; /* Adjusted to reduce the space */
+    margin: 0 0 30px; 
     position: relative;
-    z-index: 3; /* Ensure it stays above the pseudo-elements */
+    z-index: 3; 
 }
 
 .staff-container {
@@ -697,19 +697,19 @@ ul li {
     max-width: 1440px;
     margin: 0 auto;
     position: relative;
-    z-index: 3; /* Ensure it stays above the pseudo-elements */
+    z-index: 3; 
 }
 
 .profile {
     position: relative;
     transition: all 0.3s;
     text-align: center;
-    margin: 10px; /* Adjusted to reduce the space between profiles */
+    margin: 10px; 
     z-index: 1;
 }
 
 .profile:hover {
-    transform: translateY(-10px); /* Adjusted to reduce the hover effect distance */
+    transform: translateY(-10px); 
     z-index: 10;
 }
 
@@ -773,7 +773,7 @@ ul li {
     background-color: #171614;
     color: #fff;
     position: relative;
-    z-index: 1; /* Ensure it sits above the torn effect */
+    z-index: 1; 
 }
 
 .news-container {
@@ -787,7 +787,7 @@ ul li {
     background-color: #2C2C2C;
     border-radius: 5px;
     overflow: hidden;
-    width: calc(33.33% - 1rem); /* Adjust width for 3 items per row */
+    width: calc(33.33% - 1rem); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     display: flex;
@@ -803,9 +803,9 @@ ul li {
 .card-media {
     position: relative;
     width: 100%;
-    height: 200px; /* Fixed height for the media container */
+    height: 200px; 
     overflow: hidden;
-    flex-shrink: 0; /* Prevent shrinking */
+    flex-shrink: 0; 
 }
 
 .post-thumbnail {
@@ -814,7 +814,7 @@ ul li {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure image covers the container while maintaining aspect ratio */
+    object-fit: cover; 
 }
 
 .card-body {
@@ -960,13 +960,13 @@ footer ul li:nth-child(3) a:before {
 }
 
 .popup-content a {
-    color: #CE422B; /* Visible color for the link */
+    color: #CE422B; 
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .popup-content a:hover {
-    color: #942F1F; /* Darker color on hover */
+    color: #942F1F; 
     text-decoration: underline;
 }
 
@@ -1019,7 +1019,7 @@ footer ul li:nth-child(3) a:before {
 }
 
 .rules-list li.active .rule-detail {
-    max-height: 500px; /* Adjust this value as needed */
+    max-height: 500px; 
     overflow: visible;
     opacity: 1;
     padding-top: 1rem;
@@ -1243,13 +1243,13 @@ footer ul li:nth-child(3) a:before {
     }
     
     .overview-section h2 {
-        font-size: 6rem; /* Adjust the font size */
+        font-size: 6rem; 
     }
 }
 
 @media (max-width: 1024px) {
     .post-card {
-        width: calc(50% - 1rem); /* Adjust width for 2 items per row on medium screens */
+        width: calc(50% - 1rem); 
     }
 
     .overview-section video {
@@ -1263,7 +1263,7 @@ footer ul li:nth-child(3) a:before {
     }
     
     .overview-section h2 {
-        font-size: 6rem; /* Adjust the font size */
+        font-size: 6rem; 
     }
 }
 
@@ -1301,7 +1301,7 @@ footer ul li:nth-child(3) a:before {
     }
     
     .overview-section h2 {
-        font-size: 5.5rem; /* Adjust the font size */
+        font-size: 5.5rem; 
     }
 }
 
@@ -1338,7 +1338,7 @@ footer ul li:nth-child(3) a:before {
     }
     
     .overview-section h2 {
-        font-size: 5.5rem; /* Adjust the font size */
+        font-size: 5.5rem; 
     }
 }
 
@@ -1348,7 +1348,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .post-card {
-        width: 100%; /* 1 item per row */
+        width: 100%; 
     }
 
     .news-container {
@@ -1366,8 +1366,8 @@ footer ul li:nth-child(3) a:before {
     }
 
     #faq ul li .faq-answer {
-        max-height: 500px; /* Set a maximum height */
-        overflow-y: auto; /* Enable vertical scrolling */
+        max-height: 500px; 
+        overflow-y: auto; 
         opacity: 1;
         padding-top: 1rem;
         transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding-top 0.3s ease-out;
@@ -1380,17 +1380,17 @@ footer ul li:nth-child(3) a:before {
     }
 
     .profile {
-        flex: 1 1 40%; /* Adjust the flex-basis to fit two profiles side-by-side */
-        margin: 5px; /* Add some margin for spacing */
+        flex: 1 1 40%; 
+        margin: 5px; 
     }
 
     .profile img {
-        width: 80px; /* Reduce image size */
+        width: 80px; 
         height: 80px;
     }
 
     .profile .name, .profile .role {
-        font-size: 14px; /* Adjust font size */
+        font-size: 14px; 
     }
 
     .server-info-section {
@@ -1449,7 +1449,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 5rem; /* Adjust the font size */
+        font-size: 5rem; 
     }
 
     .overview-links {
@@ -1471,11 +1471,11 @@ footer ul li:nth-child(3) a:before {
     }
 
     .post-card {
-        width: 100%; /* 1 item per row */
+        width: 100%; 
     }
 
     .news-container {
-        justify-content: center; /* Center the items */
+        justify-content: center; 
     }
 
     header {
@@ -1545,7 +1545,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 3.5rem; /* Adjust the font size */
+        font-size: 3.5rem; 
     }
 
     .overview-links {
@@ -1608,7 +1608,7 @@ footer ul li:nth-child(3) a:before {
     }
 
     .overview-section h2 {
-        font-size: 3rem; /* Adjust the font size */
+        font-size: 3rem; 
     }
 
     .overview-links {
@@ -1666,49 +1666,70 @@ footer ul li:nth-child(3) a:before {
     }
 
     .profile {
-        flex: 1 1 45%; /* Further adjustment for smaller screens */
+        flex: 1 1 45%; 
     }
 
     .profile img {
-        width: 70px; /* Further reduce image size */
+        width: 70px; 
         height: 70px;
     }
 
     .profile .name, .profile .role {
-        font-size: 12px; /* Further adjust font size */
+        font-size: 12px; 
+    }
+	
+	.news-section {
+        padding: 1rem 5%;
+    }
+
+    .news-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-card {
+        width: 100%;
+    }
+
+    .entry-title {
+        font-size: 1.2rem;
+    }
+
+    .news-link {
+        font-size: 1.2rem;
     }
 }
 
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 16px; /* Increase the width of the scrollbar */
+  width: 16px; 
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; /* Remove the background of the scrollbar track */
+  background: transparent; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #CE422B, #FF6347); /* Gradient color for the thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a more distinct drop shadow */
-  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+  background: linear-gradient(45deg, #CE422B, #FF6347); 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #b83622, #FF4500); /* Darker gradient on hover */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+  background: linear-gradient(45deg, #b83622, #FF4500); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
 }
 
 ::-webkit-scrollbar-button {
-  display: none; /* Remove the arrows */
+  display: none; 
 }
 
 /* Custom Scrollbar for Firefox */
 html {
-  scrollbar-width: thick; /* Makes the scrollbar thicker */
-  scrollbar-color: linear-gradient(45deg, #CE422B, #FF6347) transparent; /* Thumb and transparent track */
+  scrollbar-width: thick; 
+  scrollbar-color: linear-gradient(45deg, #CE422B, #FF6347) transparent; 
 }
 
 /* Optional: To further customize the appearance for Firefox */
@@ -1733,5 +1754,5 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 html::-webkit-scrollbar-button {
-  display: none; /* Remove the arrows */
+  display: none; 
 }

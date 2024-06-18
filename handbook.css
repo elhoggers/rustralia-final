@@ -74,7 +74,7 @@ section h2 {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 1200px; /* Increased max-width for larger screens */
+    max-width: 1200px; 
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -100,7 +100,7 @@ section h2 {
     padding-left: 20px;
     margin-bottom: 10px;
     font-size: 1.2rem;
-    border-left: 3px solid #CE422B; /* Left border for emphasis */
+    border-left: 3px solid #CE422B; 
     transition: all 0.3s ease-in-out;
 }
 
@@ -212,23 +212,23 @@ footer ul li:nth-child(3) a:before {
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 16px; /* Increase the width of the scrollbar */
+  width: 16px; 
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; /* Remove the background of the scrollbar track */
+  background: transparent; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #CE422B, #FF6347); /* Gradient color for the thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a more distinct drop shadow */
-  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+  background: linear-gradient(45deg, #CE422B, #FF6347); 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #b83622, #FF4500); /* Darker gradient on hover */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+  background: linear-gradient(45deg, #b83622, #FF4500); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
 }
 
 ::-webkit-scrollbar-button {
@@ -237,8 +237,8 @@ footer ul li:nth-child(3) a:before {
 
 /* Custom Scrollbar for Firefox */
 html {
-  scrollbar-width: thick; /* Makes the scrollbar thicker */
-  scrollbar-color: linear-gradient(45deg, #CE422B, #FF6347) transparent; /* Thumb and transparent track */
+  scrollbar-width: thick; 
+  scrollbar-color: linear-gradient(45deg, #CE422B, #FF6347) transparent; 
 }
 
 /* Optional: To further customize the appearance for Firefox */
@@ -263,5 +263,5 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 html::-webkit-scrollbar-button {
-  display: none; /* Remove the arrows */
+  display: none; 
 }
