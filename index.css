@@ -127,6 +127,19 @@ ul li {
     text-align: left;
 }
 
+.section-heading {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.header-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 /* Overview Section */
 .overview-section {
     position: relative;
@@ -262,17 +275,18 @@ ul li {
 
 .server-info-box {
     padding: 0;
-    border-radius: 0px;
+    border-radius: 0; /* Set to 0 to remove any rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
-	background-color: #171615;
-	border: 0;
+    background-color: #171615; /* Ensure this matches your desired background color */
+    border: none; /* Remove any borders */
     text-align: center;
     position: relative;
     overflow: hidden;
     cursor: pointer;
 }
+
 
 .thumbnail {
     position: relative;
@@ -1071,7 +1085,6 @@ footer ul li:nth-child(3) a:before {
 }
 
 .server-info-box {
-    background-color: #fff;
     padding: 0; 
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);

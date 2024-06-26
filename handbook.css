@@ -104,16 +104,6 @@ section h2 {
     transition: all 0.3s ease-in-out;
 }
 
-.dot-point::before {
-    content: '•';
-    position: absolute;
-    left: 5px;
-    color: #CE422B;
-    font-size: 1.5em;
-    line-height: 1;
-    top: 50%;
-    transform: translateY(-50%);
-}
 
 /* Footer Styles */
 footer {
