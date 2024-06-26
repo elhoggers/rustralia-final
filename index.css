@@ -139,6 +139,12 @@ ul li {
     transform: translateY(0);
 }
 
+.header-image {
+    width: 100%;
+    max-width: 550px; /* Adjust the max-width to your desired size */
+    height: auto;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
 
 /* Overview Section */
 .overview-section {
