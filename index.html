@@ -7,22 +7,27 @@
     <meta name="keywords" content="Rust, Rust server, Rustralia, Rust community, Rust rules, Rust gameplay, best rust server, au, Australia">
     <title>Rustralia - The number 1 AU community Server</title>
     <link rel="stylesheet" href="index.css">
-	<link rel="icon" href="images/1000x1000.webp" type="image/x-icon">
+    <link rel="icon" href="images/1000x1000.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
     <header>
         <a href="#" class="logo-link"><img src="images/text2.webp" alt="Rustralia Logo" class="logo"></a>
         <nav>
-            <ul>
+            <ul id="nav-list">
                 <li><a href="#overview" data-scroll>Overview</a></li>
                 <li><a href="#rules" id="rules-link" data-scroll>Rules</a></li>
                 <li><a href="#shop" data-scroll>QUEUE SKIP</a></li>                
                 <li><a href="#faq" data-scroll>FAQ</a></li>
                 <li><a href="#news" data-scroll>News</a></li>
-                <li><a href="stats.html">Stats</a></li>
+                <li><a href="under-construction.html">Stats</a></li>
                 <li><a href="handbook.html">Handbook</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
@@ -55,17 +60,21 @@
                         </a>
                     </div>
                 </div>
-                <div class="server-info-box coming-soon">
-                    <div class="thumbnail">
-                        <img src="images/almost-as-bad-ass.webp" alt="Coming Soon Thumbnail" class="grayscale">
-					</div>
-                    <div class="server-details">
-                        <h2>Coming soon</h2>
-                        <p>Details will be available soon.</p>
-                        <button class="button" disabled>Client connect</button>
-                        <button class="button" disabled>Shop</button>
-                    </div>
-                </div>
+                <div class="server-info-box">
+    <div class="thumbnail">
+        <img src="images/rust-news-beach.webp" alt="Server Thumbnail">
+        <p id="server-status-fortnightly" class="status-overlay"><span id="status-fortnightly">Loading...</span></p>
+    </div>
+    <div class="server-details">
+        <h2>Fortnightly - No BP wipes</h2>
+        <p id="population-count-fortnightly">Loading...</p>
+        <button id="copy-button-fortnightly" class="button">Client connect</button>
+        <a href="https://rustralia.craftingstore.net/category/359145" target="_blank">
+            <button id="shop-button-fortnightly" class="button">Shop</button>
+        </a>
+    </div>
+</div>
+
             </div>
         </div>
     </section>
@@ -207,11 +216,6 @@
                 <span class="role">Owner</span>
             </div>
             <div class="profile">
-                <img src="images/scotty.webp" alt="Staff Member 2">
-                <span class="name">Scotty</span>
-                <span class="role">EX-Owner</span>
-            </div>
-            <div class="profile">
                 <img src="images/elhog.webp" alt="Staff Member 3">
                 <span class="name">EL Hog</span>
                 <span class="role">Management</span>
@@ -236,20 +240,10 @@
                 <span class="name">Gibbon</span>
                 <span class="role">Admin</span>
             </div>
-			<div class="profile">
+            <div class="profile">
                 <img src="images/brenden.webp" alt="Staff Member 6">
                 <span class="name">Brenden</span>
-                <span class="role">Trial admin</span>
-            </div>
-			<div class="profile">
-                <img src="images/aurum.webp" alt="Staff Member 6">
-                <span class="name">aurum</span>
-                <span class="role">Trial admin</span>
-            </div>
-			<div class="profile">
-                <img src="images/xiyang.webp" alt="Staff Member 6">
-                <span class="name">xiyang</span>
-                <span class="role">Trial admin</span>
+                <span class="role">Admin</span>
             </div>
             <div class="profile">
                 <img src="images/bags.webp" alt="Staff Member 7">
@@ -496,11 +490,11 @@
                 emailLinkElement.innerHTML = `<a href="mailto:${emailAddress}">${emailAddress}</a>`;
             }
 
-            // Fetch server population data from BattleMetrics API
-            const apiUrl = 'https://api.battlemetrics.com/servers/15465350';
-            const serverAddress = 'au.monthly.rustralia.com.au';
+            // Fetch server population data from BattleMetrics API for Monthly Server
+            const apiUrlMonthly = 'https://api.battlemetrics.com/servers/15465350';
+            const serverAddressMonthly = 'connect au.monthly.rustralia.com.au:28014';
 
-            fetch(apiUrl)
+            fetch(apiUrlMonthly)
                 .then(response => response.json())
                 .then(data => {
                     const populationCount = data.data.attributes.players;
@@ -518,11 +512,33 @@
                     document.getElementById('status').className = 'server-status-offline';
                 });
 
-            // Copy server address to clipboard
+            // Fetch server population data from BattleMetrics API for Fortnightly Server
+            const apiUrlFortnightly = 'https://api.battlemetrics.com/servers/14801137';
+            const serverAddressFortnightly = 'connect au.fortnightly.rustralia.com.au:28015';
+
+            fetch(apiUrlFortnightly)
+                .then(response => response.json())
+                .then(data => {
+                    const populationCount = data.data.attributes.players;
+                    const maxPlayers = data.data.attributes.maxPlayers;
+                    const serverStatus = data.data.attributes.status;
+
+                    document.getElementById('population-count-fortnightly').textContent = `${populationCount}/${maxPlayers} players`;
+                    document.getElementById('status-fortnightly').textContent = serverStatus === 'online' ? 'Online' : 'Offline';
+                    document.getElementById('status-fortnightly').className = serverStatus === 'online' ? 'server-status-online' : 'server-status-offline';
+                })
+                .catch(error => {
+                    console.error('Error fetching server data:', error);
+                    document.getElementById('population-count-fortnightly').textContent = 'Failed to load population data';
+                    document.getElementById('status-fortnightly').textContent = 'Offline';
+                    document.getElementById('status-fortnightly').className = 'server-status-offline';
+                });
+
+            // Copy server address to clipboard for Monthly Server
             const copyButton = document.getElementById('copy-button');
             if (copyButton) {
                 copyButton.addEventListener('click', function () {
-                    navigator.clipboard.writeText(serverAddress).then(function () {
+                    navigator.clipboard.writeText(serverAddressMonthly).then(function () {
                         alert('Client connect au.monthly.rustralia.com.au copied to clipboard');
                     }, function (err) {
                         console.error('Could not copy text: ', err);
@@ -530,46 +546,66 @@
                 });
             }
 
-         const faqItems = document.querySelectorAll('.faq-item');
+            // Copy server address to clipboard for Fortnightly Server
+            const copyButtonFortnightly = document.getElementById('copy-button-fortnightly');
+            if (copyButtonFortnightly) {
+                copyButtonFortnightly.addEventListener('click', function () {
+                    navigator.clipboard.writeText(serverAddressFortnightly).then(function () {
+                        alert('Client connect au.fortnightly.rustralia.com.au copied to clipboard');
+                    }, function (err) {
+                        console.error('Could not copy text: ', err);
+                    });
+                });
+            }
 
-    // Ensure all FAQ answers are closed initially
-    faqItems.forEach(item => {
-        const answer = item.querySelector('.faq-answer');
-        answer.style.maxHeight = '0';
-        answer.style.opacity = '0';
-    });
+            // FAQ Section Toggle Functionality
+            const faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-
-            // Close all other FAQ items
-            faqItems.forEach(faq => {
-                faq.classList.remove('active');
-                faq.querySelector('.faq-answer').style.maxHeight = '0';
-                faq.querySelector('.faq-answer').style.opacity = '0';
-            });
-
-            // Toggle the clicked FAQ item
-            if (!isActive) {
-                item.classList.add('active');
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-                answer.style.opacity = '1';
-            } else {
-                item.classList.remove('active');
+            // Ensure all FAQ answers are closed initially
+            faqItems.forEach(item => {
+                const answer = item.querySelector('.faq-answer');
                 answer.style.maxHeight = '0';
                 answer.style.opacity = '0';
-            }
-        });
-    });
-});
+            });
 
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other FAQ items
+                    faqItems.forEach(faq => {
+                        faq.classList.remove('active');
+                        faq.querySelector('.faq-answer').style.maxHeight = '0';
+                        faq.querySelector('.faq-answer').style.opacity = '0';
+                    });
+
+                    // Toggle the clicked FAQ item
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        answer.style.opacity = '1';
+                    } else {
+                        item.classList.remove('active');
+                        answer.style.maxHeight = '0';
+                        answer.style.opacity = '0';
+                    }
+                });
+            });
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const navList = document.getElementById('nav-list');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('show');
+        });
     </script>
 </body>
 </html>
+
 
 
 
