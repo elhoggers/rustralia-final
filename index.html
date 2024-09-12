@@ -15,13 +15,12 @@
         <a href="#" class="logo-link"><img src="images/text2.webp" alt="Rustralia Logo" class="logo"></a>
         <nav>
             <ul id="nav-list">
-                <li><a href="#overview" data-scroll>Overview</a></li>
                 <li><a href="#rules" id="rules-link" data-scroll>Rules</a></li>
-                <li><a href="#shop" data-scroll>QUEUE SKIP</a></li>                
+                <li><a href="handbook.html">Handbook</a></li>
+				<li><a href="#server-info" data-scroll>Queue Skip</a></li>                
                 <li><a href="#faq" data-scroll>FAQ</a></li>
                 <li><a href="#news" data-scroll>News</a></li>
                 <li><a href="under-construction.html">Stats</a></li>
-                <li><a href="handbook.html">Handbook</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -36,7 +35,7 @@
         <div class="overview-content">
             <div class="background-image"></div>
             <img src="images/text4 .webp" alt="Rustralia" class="section-heading header-slide-in header-image">
-            <p class="section-heading header-slide-in">Welcome to the NO.1 Aus community server<br>AU hosted, quick staff support</p>
+            <p class="section-heading header-slide-in">Welcome to the NO.1 AUS community server<br>AU hosted, quick staff support, bp's never wipe</p>
         </div>
         <div class="overview-links">
             <a href="https://discord.gg/9BMYjGC" target="_blank"><i class="fab fa-discord icon"></i></a>
@@ -54,27 +53,36 @@
                     <div class="server-details">
                         <h2>Monthly - No BP wipes</h2>
                         <p id="population-count">Loading...</p>
-                        <button id="copy-button" class="button">Client connect</button>
-                        <a href="https://rustralia.craftingstore.net/category/359145" target="_blank">
-                            <button id="shop-button" class="button">Shop</button>
-                        </a>
+                        <div class="button-container">
+        <button id="copy-button" class="button">Client connect</button>
+        <a href="https://rustralia.craftingstore.net/category/359145" target="_blank">
+            <button id="shop-button" class="button">Shop</button>
+        </a>
+        <a href="https://rustmaps.com/server/rsmonthly" target="_blank">
+        <button id="map-button" class="button">Map</button>
+    </a>
+    </div>
                     </div>
                 </div>
                 <div class="server-info-box">
-    <div class="thumbnail">
-        <img src="images/rust-news-beach.webp" alt="Server Thumbnail">
-        <p id="server-status-fortnightly" class="status-overlay"><span id="status-fortnightly">Loading...</span></p>
-    </div>
-    <div class="server-details">
-        <h2>Fortnightly - No BP wipes</h2>
-        <p id="population-count-fortnightly">Loading...</p>
+					<div class="thumbnail">
+						<img src="images/rust-news-beach.webp" alt="Server Thumbnail">
+						<p id="server-status-fortnightly" class="status-overlay"><span id="status-fortnightly">Loading...</span></p>
+					</div>
+					<div class="server-details">
+						<h2>Fortnightly - No BP wipes</h2>
+						<p id="population-count-fortnightly">Loading...</p>
+						<div class="button-container">
         <button id="copy-button-fortnightly" class="button">Client connect</button>
         <a href="https://rustralia.craftingstore.net/category/359145" target="_blank">
-            <button id="shop-button-fortnightly" class="button">Shop</button>
+            <button id="shop-button" class="button">Shop</button>
         </a>
+        <a href="https://rustmaps.com/server/rsfortnightly" target="_blank">
+        <button id="map-button" class="button">Map</button>
+    </a>
     </div>
-</div>
-
+					</div>
+				</div>
             </div>
         </div>
     </section>
@@ -87,7 +95,8 @@
                 <div class="faq-answer">
                     <p><strong>Force Wipe:</strong> This will occur on the first Friday of each month at 4 AM AEST or 6 AM AEDT (depending on whether it is non-daylight savings or daylight savings). At times, this schedule can be delayed if Facepunch releases a last-minute patch.</p>
                     <p><strong>Monthly Server:</strong> This server will wipe on force wipe as explained above.</p>
-                    <p><strong>Wipe Command:</strong> You can use !wipe in our Discord to see when a server will wipe next.</p>
+					<p><strong>Fortnightly Server:</strong> This server will wipe twice a month, once on force and another on the second Friday at 3pm AEST, If it is a 5 week wipe, the server will wipe one more time on the fourth Friday for a week's wipe.</p>
+                    <p><strong>Wipe Command:</strong> You can use !wipe in our Discord to see when the servers will wipe next.</p>
                 </div>
             </li>
             <li class="faq-item">
@@ -256,7 +265,7 @@
                 <span class="role">Chat mod</span>
             </div>
             <div class="profile">
-                <img src="images/tish.webp" alt="Staff Member 9">
+                <img src="images/tish.gif" alt="Staff Member 9">
                 <span class="name">Tish</span>
                 <span class="role">Chat mod</span>
             </div>
@@ -382,13 +391,16 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Smooth scrolling
             document.querySelectorAll('a[data-scroll]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            const offset = window.innerHeight / 3 - target.offsetHeight / 5;
+            window.scrollTo({
+                top: target.offsetTop - offset,
+                behavior: 'smooth'
             });
+        });
+    });
 
             // Scroll to top when logo is clicked
             document.querySelector('.logo-link').addEventListener('click', function (e) {
@@ -513,7 +525,7 @@
                 });
 
             // Fetch server population data from BattleMetrics API for Fortnightly Server
-            const apiUrlFortnightly = 'https://api.battlemetrics.com/servers/14801137';
+            const apiUrlFortnightly = 'https://api.battlemetrics.com/servers/28843361';
             const serverAddressFortnightly = 'connect au.fortnightly.rustralia.com.au:28015';
 
             fetch(apiUrlFortnightly)
@@ -596,12 +608,34 @@
             });
         });
 
-        const hamburger = document.getElementById('hamburger');
-        const navList = document.getElementById('nav-list');
+// Toggle the hamburger menu on click
+document.getElementById('hamburger').addEventListener('click', function() {
+    const navList = document.getElementById('nav-list');
+    navList.classList.toggle('show'); // Toggle the 'show' class for the menu
+});
 
-        hamburger.addEventListener('click', () => {
-            navList.classList.toggle('show');
-        });
+// Close the menu when clicking outside
+document.addEventListener('click', function(event) {
+    const navList = document.getElementById('nav-list');
+    const hamburger = document.getElementById('hamburger');
+    
+    // If the click is outside the hamburger or menu, close the menu
+    if (!hamburger.contains(event.target) && !navList.contains(event.target)) {
+        navList.classList.remove('show');
+    }
+});
+
+// Close the menu when a navigation item is clicked
+document.querySelectorAll('nav ul li a').forEach(item => {
+    item.addEventListener('click', function() {
+        const navList = document.getElementById('nav-list');
+        navList.classList.remove('show'); // Close the menu
+    });
+});
+
+
+
+		
     </script>
 </body>
 </html>
