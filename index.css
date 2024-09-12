@@ -1138,22 +1138,17 @@ footer ul li:nth-child(3) a:before {
     margin-bottom: 0.5rem;
 }
 
-#copy-button, #shop-button ,#copy-button-fortnightly {
-    background-color: #CE422B;
+#copy-button, #copy-button-fortnightly {
+    font-size: 1.2rem; /* Base font size */
+    padding: 0.8rem 1.5rem; /* Base padding */
+    background-color: #CE422B; /* Client Connect button color */
     color: #fff;
     border: none;
-    padding: 1rem 2rem; 
     border-radius: 5px;
-    margin-top: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 1.2rem; 
+    max-width: 100%;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
 }
-
-#copy-button:hover, #shop-button:hover ,#copy-button-frotnightly:hover {
-    background-color: #852A1B;
-}
-
 .server-status-online {
     color: green;
 }
@@ -1191,28 +1186,37 @@ footer ul li:nth-child(3) a:before {
     margin-top: 1rem;         /* Space between buttons and the player count */
 }
 
-/* Button styling (unchanged from before) */
-#map-button, #map-button {
-    background-color: #6BBF59;
+#map-button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #6BBF59; /* Map button specific color */
     color: #fff;
     border: none;
-    padding: 1rem 2rem;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease;
+    max-width: 100%;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+}
+
+#map-button:hover {
+    background-color: #57A747; /* Hover color for Map button */
+}
+
+#shop-button {
     font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #CE422B; /* Shop button specific color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    max-width: 100%;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
 }
 
-#map-button:hover, #map-button:hover {
-    background-color: #57A747;
-    transform: scale(1.05);
+#shop-button:hover {
+    background-color: #942F1F; /* Hover color for Shop button */
 }
-
-#map-button:active, #map-button:active {
-    background-color: #4C9240;
-    transform: scale(1);
-}
-
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -1277,29 +1281,8 @@ footer ul li:nth-child(3) a:before {
     }
 }
 
-@media(max-width: 1060px) {
-	
-	#copy-button {
-		font-size: 1.1rem;}
-	#copy-button-fortnightly {
-		font-size: 1.1rem;}
-}
-
-@media(max-width: 1034px) {
-	
-	#copy-button {
-		font-size: 1.05rem;}
-	#copy-button-fortnightly {
-		font-size: 1.05rem;}
-}
-
 @media (max-width: 1024px) {
-	
-	#copy-button {
-		font-size: 1.04rem;}
-	#copy-button-fortnightly {
-		font-size: 1.04rem;}
-	
+		
     .post-card {
         width: calc(50% - 1rem); 
     }
@@ -1319,49 +1302,9 @@ footer ul li:nth-child(3) a:before {
     }
 }
 
-@media (max-width: 1021px) {
-	#copy-button {
-		font-size: 1.03rem;}
-	#copy-button-fortnightly {
-		font-size: 1.03rem;}
-	
-    .server-info-section {
-        flex-direction: row;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 1019px) {
-	#copy-button {
-		font-size: 1.02rem;}
-	#copy-button-fortnightly {
-		font-size: 1.02rem;}
-	
-    .server-info-section {
-        flex-direction: row;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 1018px) {
-	#copy-button {
-		font-size: 1rem;}
-	#copy-button-fortnightly {
-		font-size: 1rem;}
-	
-    .server-info-section {
-        flex-direction: row;
-        gap: 1rem;
-    }
-}
-
 @media (max-width: 992px) {
-	#copy-button {
-		font-size: 1rem;}
-	#copy-button-fortnightly {
-		font-size: 1rem;}
 	
-    .server-info-section {
+	.server-info-section {
         flex-direction: row;
         gap: 1rem;
     }
@@ -1399,6 +1342,17 @@ footer ul li:nth-child(3) a:before {
 }
 
 @media (max-width: 925px) {
+	
+	#map-button ,#shop-button {
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+    }
+	
+	#copy-button, #copy-button-fortnightly {
+        font-size: 1rem; 
+        padding: 0.6rem 1rem; 
+    }
+	
 	.server-info-section {
         flex-direction: row;
         gap: 1rem;
@@ -1447,11 +1401,18 @@ footer ul li:nth-child(3) a:before {
 }
 
 @media (max-width: 768px) {
-		#copy-button {
-		font-size: 1.2rem;}
-	#copy-button-fortnightly {
-		font-size: 1.2rem;}
-	 header {
+	
+	#map-button ,#shop-button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
+	
+	#copy-button, #copy-button-fortnightly {
+        font-size: 1.2rem; 
+        padding: 0.8rem 1.5rem; 
+    }
+	
+	header {
         display: flex;
         flex-direction: row; 
         justify-content: space-between; 
@@ -1567,6 +1528,7 @@ footer ul li:nth-child(3) a:before {
 
 
 @media (max-width: 576px) {
+	
     header {
         flex-direction: row; 
         justify-content: space-between; 
@@ -1707,6 +1669,7 @@ footer ul li:nth-child(3) a:before {
 
 
 @media (max-width: 480px) {
+
     header {
         flex-direction: row;
         justify-content: space-between;
@@ -1846,7 +1809,12 @@ footer ul li:nth-child(3) a:before {
 }
 
 
-@media (max-width: 380px) {
+@media (max-width: 390px) {
+	
+	#news {
+    padding-top: 3rem; 
+	}
+	
     .news-section {
         padding: 1rem 2%;
     }
